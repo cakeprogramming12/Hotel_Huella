@@ -9,15 +9,14 @@
                 <li><a href="manage-rooms.php">Administrar Cuartos</a></li>
             </ul>
         </li>
-        <li><a href="manage-reservaciones.php"><i class="fa fa-file"></i>Administrar reservaciones</a></li>
-        <li><a href="manage-students.php"><i class="fa fa-users"></i>Administrar Administradores</a></li>
+
+        <li><a href="manage-students.php"><i class="fa fa-users"></i>Administrar clientes</a></li>
         <li><a href="access-log.php"><i class="fa fa-file"></i>Registro de Acceso de clientes</a></li>
 
         <li><a href="#"><i class="fa fa-desktop"></i> Control de pagos</a>
             <ul>
                 <li><a href="create-pay.php">Confirmar reservaciones</a></li>
                 <li><a href="manage-pay.php">Administrar ganancias</a></li>
-
             </ul>
         </li>
 

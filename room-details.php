@@ -160,7 +160,7 @@ check_login();
                                         </tr>
 
                                         <tr>
-                                            <td><b>Código Alfanumérico</b></td>
+                                            <td><b>Código De reserva</b></td>
                                             <td colspan="5"><?php echo $row->codigo_alfanumerico; ?></td>
                                         </tr>
 

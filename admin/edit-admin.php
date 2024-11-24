@@ -4,21 +4,20 @@ include('includes/config.php');
 include('includes/checklogin.php');
 check_login();
 
-if($_POST['submit'])
-{
-    $seater = $_POST['seater'];
-    $fees = $_POST['fees'];
-    $ocupada = isset($_POST['ocupada']) ? 1 : 0; // Verifica si el checkbox está marcado
+if ($_POST['submit']) {
+    $username = $_POST['username'];
+    $email = $_POST['email'];
+    $password = $_POST['password']; // Recuerda encriptar la contraseña si es necesario.
     $id = $_GET['id'];
 
-    $query = "UPDATE rooms SET seater=?, fees=?, ocupada=? WHERE id=?";
+    $query = "UPDATE admin SET username=?, email=?, password=?, updation_date=NOW() WHERE id=?";
     $stmt = $mysqli->prepare($query);
-    $rc = $stmt->bind_param('iiii', $seater, $fees, $ocupada, $id);
+    $stmt->bind_param('sssi', $username, $email, $password, $id);
     $stmt->execute();
-    echo "<script>alert('Los detalles de la habitación se han actualizado correctamente');</script>";
+    echo "<script>alert('Detalles del administrador actualizados correctamente');</script>";
 }
-
 ?>
+
 <!doctype html>
 <html lang="en" class="no-js">
 
@@ -29,7 +28,7 @@ if($_POST['submit'])
     <meta name="description" content="">
     <meta name="author" content="">
     <meta name="theme-color" content="#3e454c">
-    <title>Edit Room Details</title>
+    <title>Editar Administrador</title>
     <link rel="stylesheet" href="css/font-awesome.min.css">
     <link rel="stylesheet" href="css/bootstrap.min.css">
     <link rel="stylesheet" href="css/dataTables.bootstrap.min.css">
@@ -38,8 +37,6 @@ if($_POST['submit'])
     <link rel="stylesheet" href="css/fileinput.min.css">
     <link rel="stylesheet" href="css/awesome-bootstrap-checkbox.css">
     <link rel="stylesheet" href="css/style.css">
-    <script type="text/javascript" src="js/jquery-1.11.3-jquery.min.js"></script>
-    <script type="text/javascript" src="js/validation.min.js"></script>
 </head>
 
 <body>
@@ -50,14 +47,14 @@ if($_POST['submit'])
             <div class="container-fluid">
                 <div class="row">
                     <div class="col-md-12">
-                        <h2 class="page-title">Editar Detalles de Cuarto</h2>
+                        <h2 class="page-title">Editar Administrador</h2>
                         <div class="panel panel-default">
-                            <div class="panel-heading">Detalles de Cuarto</div>
+                            <div class="panel-heading">Detalles del Administrador</div>
                             <div class="panel-body">
                                 <form method="post" class="form-horizontal">
                                     <?php
                                     $id = $_GET['id'];
-                                    $ret = "SELECT * FROM rooms WHERE id=?";
+                                    $ret = "SELECT * FROM admin WHERE id=?";
                                     $stmt = $mysqli->prepare($ret);
                                     $stmt->bind_param('i', $id);
                                     $stmt->execute();
@@ -66,40 +63,44 @@ if($_POST['submit'])
                                     ?>
                                     <div class="hr-dashed"></div>
                                     <div class="form-group">
-                                        <label class="col-sm-2 control-label">Cuartos</label>
+                                        <label class="col-sm-2 control-label">Usuario</label>
                                         <div class="col-sm-8">
-                                            <input type="text" name="seater" value="<?php echo $row->seater; ?>"
-                                                class="form-control">
+                                            <input type="text" name="username" value="<?php echo $row->username; ?>"
+                                                class="form-control" required>
                                         </div>
                                     </div>
                                     <div class="form-group">
-                                        <label class="col-sm-2 control-label">No de Cuarto</label>
+                                        <label class="col-sm-2 control-label">Email</label>
                                         <div class="col-sm-8">
-                                            <input type="text" class="form-control" name="rmno" id="rmno"
-                                                value="<?php echo $row->room_no; ?>" disabled>
-                                            <span class="help-block m-b-none">El número del cuarto no puede ser
-                                                cambiado.</span>
+                                            <input type="email" name="email" value="<?php echo $row->email; ?>"
+                                                class="form-control" required>
                                         </div>
                                     </div>
                                     <div class="form-group">
-                                        <label class="col-sm-2 control-label">Costo</label>
+                                        <label class="col-sm-2 control-label">Contraseña</label>
                                         <div class="col-sm-8">
-                                            <input type="text" class="form-control" name="fees"
-                                                value="<?php echo $row->fees; ?>">
+                                            <input type="password" name="password" value="<?php echo $row->password; ?>"
+                                                class="form-control" required>
                                         </div>
                                     </div>
                                     <div class="form-group">
-                                        <label class="col-sm-2 control-label">Estado (Ocupada)</label>
+                                        <label class="col-sm-2 control-label">Fecha de Registro</label>
                                         <div class="col-sm-8">
-                                            <input type="checkbox" name="ocupada"
-                                                <?php echo $row->ocupada ? 'checked' : ''; ?>>
-                                            <label>¿Está ocupada?</label>
+                                            <input type="text" value="<?php echo $row->reg_date; ?>"
+                                                class="form-control" disabled>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="col-sm-2 control-label">Última Actualización</label>
+                                        <div class="col-sm-8">
+                                            <input type="text" value="<?php echo $row->updation_date; ?>"
+                                                class="form-control" disabled>
                                         </div>
                                     </div>
                                     <?php } ?>
                                     <div class="col-sm-8 col-sm-offset-2">
                                         <input class="btn btn-primary" type="submit" name="submit"
-                                            value="Actualizar detalles de cuarto">
+                                            value="Actualizar Administrador">
                                     </div>
                                 </form>
                             </div>
@@ -109,6 +110,7 @@ if($_POST['submit'])
             </div>
         </div>
     </div>
+
     <script src="js/jquery.min.js"></script>
     <script src="js/bootstrap-select.min.js"></script>
     <script src="js/bootstrap.min.js"></script>

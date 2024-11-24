@@ -4,6 +4,9 @@ include('includes/config.php');
 include('includes/checklogin.php');
 check_login();
 
+// Generar un código único al cargar la página
+$random_code = substr(str_shuffle('0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ'), 0, 10);
+
 if (isset($_POST['submit'])) {
     // Recibir datos del formulario
     $roomno = $_POST['room'];
@@ -371,10 +374,10 @@ $aid=$_SESSION['id'];
                                             </div>
 
                                             <div class="form-group">
-                                                <label class="col-sm-2 control-label">Colonias </label>
+                                                <label class="col-sm-2 control-label">Pais</label>
                                                 <div class="col-sm-8">
                                                     <select name="state" id="state" class="form-control" required>
-                                                        <option value="">Selecciona colonias</option>
+                                                        <option value="">Selecciona tu pais</option>
                                                         <?php $query ="SELECT * FROM states";
 $stmt2 = $mysqli->prepare($query);
 $stmt2->execute();
@@ -430,10 +433,10 @@ while($row=$res->fetch_object())
                                             </div>
 
                                             <div class="form-group">
-                                                <label class="col-sm-2 control-label">Departamento </label>
+                                                <label class="col-sm-2 control-label">pais </label>
                                                 <div class="col-sm-8">
                                                     <select name="pstate" id="pstate" class="form-control" required>
-                                                        <option value="">Selecciona departamento</option>
+                                                        <option value="">Selecciona tu pais</option>
                                                         <?php $query ="SELECT * FROM states";
 $stmt2 = $mysqli->prepare($query);
 $stmt2->execute();
@@ -462,9 +465,12 @@ while($row=$res->fetch_object())
                                                 <div class="col-sm-8">
                                                     <input type="text" name="resercode" id="resercode"
                                                         class="form-control" required="required" readonly
-                                                        value="<?php echo $random_code; ?>">
+                                                        value="<?php echo htmlspecialchars($random_code); ?>">
                                                 </div>
                                             </div>
+
+
+
 
 
 

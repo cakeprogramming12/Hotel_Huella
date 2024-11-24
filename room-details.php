@@ -54,15 +54,15 @@ check_login();
                                 <table id="zctb" class="table table-bordered" cellspacing="0" width="100%">
                                     <tbody>
                                         <?php
-										$aid = $_SESSION['login'];
-										$ret = "select * from registration where emailid=?";
-										$stmt = $mysqli->prepare($ret);
-										$stmt->bind_param('s', $aid);
-										$stmt->execute();
-										$res = $stmt->get_result();
-										$cnt = 1;
-										while ($row = $res->fetch_object()) {
-										?>
+                                        $aid = $_SESSION['login'];
+                                        $ret = "SELECT * FROM registration WHERE emailid=?";
+                                        $stmt = $mysqli->prepare($ret);
+                                        $stmt->bind_param('s', $aid);
+                                        $stmt->execute();
+                                        $res = $stmt->get_result();
+                                        $cnt = 1;
+                                        while ($row = $res->fetch_object()) {
+                                        ?>
 
                                         <tr>
                                             <td colspan="4">
@@ -150,9 +150,14 @@ check_login();
                                             </td>
                                         </tr>
 
+                                        <tr>
+                                            <td><b>Código Alfanumérico</b></td>
+                                            <td colspan="5"><?php echo $row->codigo_alfanumerico; ?></td>
+                                        </tr>
+
                                         <?php
-											$cnt = $cnt + 1;
-										} ?>
+                                            $cnt = $cnt + 1;
+                                        } ?>
                                     </tbody>
                                 </table>
                             </div>

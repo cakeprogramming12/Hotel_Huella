@@ -58,7 +58,7 @@ if(isset($_GET['del']))
                 <div class="row">
                     <div class="col-md-12">
                         </br></br>
-                        <h2 class="page-title">Administración de Registro de Estudiantes</h2>
+                        <h2 class="page-title">Administración de Registro de clientes</h2>
                         <div class="panel panel-default">
                             <div class="panel-heading">Detalles de Cuarto</div>
                             <div class="panel-body">
@@ -67,7 +67,7 @@ if(isset($_GET['del']))
                                     <thead>
                                         <tr>
                                             <th>Serie.</th>
-                                            <th>Nombre del Estudiante</th>
+                                            <th>Nombre del CLIENTE</th>
                                             <th>No de Contacto </th>
                                             <th>No de Cuarto</th>
                                             <th>Habitaciones</th>
@@ -78,7 +78,7 @@ if(isset($_GET['del']))
                                     <tfoot>
                                         <tr>
                                             <th>Serie.</th>
-                                            <th>Nombre del Estudiante</th>
+                                            <th>Nombre del CLIENTE</th>
                                             <th>No de Contacto </th>
                                             <th>No de Cuarto</th>
                                             <th>Habitaciones</th>

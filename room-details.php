@@ -48,7 +48,16 @@ check_login();
                     <div class="col-md-12">
                         <br><br>
                         <h2 class="page-title">Detalles de tu Reserva</h2>
+
+                        <button onclick="window.location.href='https://link.mercadopago.com.mx/holidayinnexpress' ">
+                            Pagar con Mercado Pago
+                        </button>
+                        <br>
+                        <br>
+                        <br>
+
                         <div class="panel panel-default">
+
                             <div class="panel-heading">Todos los Detalles de tu Reserva</div>
                             <div class="panel-body">
                                 <table id="zctb" class="table table-bordered" cellspacing="0" width="100%">

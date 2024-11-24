@@ -8,7 +8,7 @@
         <li><a href="my-profile.php"><i class="fa fa-user"></i> Mi Perfil</a></li>
         <li><a href="change-password.php"><i class="fa fa-files-o"></i>Cambiar Contraseña</a></li>
         <li><a href="book-hostel.php"><i class="fa fa-file-o"></i>Reservar</a></li>
-        <li><a href="room-details.php"><i class="fa fa-file-o"></i>Detalles de Cuarto</a></li>
+        <li><a href="room-details.php"><i class="fa fa-file-o"></i>Detalles de tu reserva</a></li>
         <li><a href="access-log.php"><i class="fa fa-file-o"></i>Registro de Acceso</a></li>
         <?php } else { ?>
 

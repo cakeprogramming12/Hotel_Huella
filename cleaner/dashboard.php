@@ -61,7 +61,7 @@ $stmt->close();
 ?>
 
                                                     <div class="stat-panel-number h1 "><?php echo $count;?></div>
-                                                    <div class="stat-panel-title text-uppercase"> Clientes</div>
+                                                    <div class="stat-panel-title text-uppercase"> Estudiantes</div>
                                                 </div>
                                             </div>
                                             <a href="manage-students.php" class="block-anchor panel-footer">Mas
@@ -86,6 +86,27 @@ $stmt1->close();
                                             </div>
                                             <a href="manage-rooms.php" class="block-anchor panel-footer text-center">Ver
                                                 Todos &nbsp; <i class="fa fa-arrow-right"></i></a>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-3">
+                                        <div class="panel panel-default">
+                                            <div class="panel-body bk-info text-light">
+                                                <div class="stat-panel text-center">
+                                                    <?php
+$result2 ="SELECT count(*) FROM courses ";
+$stmt2 = $mysqli->prepare($result2);
+$stmt2->execute();
+$stmt2->bind_result($count2);
+$stmt2->fetch();
+$stmt2->close();
+?>
+                                                    <div class="stat-panel-number h1 "><?php echo $count2;?></div>
+                                                    <div class="stat-panel-title text-uppercase">Total de Cursos</div>
+                                                </div>
+                                            </div>
+                                            <a href="manage-courses.php"
+                                                class="block-anchor panel-footer text-center">Ver Todos &nbsp; <i
+                                                    class="fa fa-arrow-right"></i></a>
                                         </div>
                                     </div>
 

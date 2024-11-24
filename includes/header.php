@@ -1,7 +1,7 @@
 <?php if($_SESSION['id'])
 { ?><div class="brand clearfix">
     <link rel="icon" href="" type="image/ico">
-    <a href="#" class="logo" style="font-size:16px;">Holiday Inn Express Toluca|ConfiguroWeb</a>
+    <a href="#" class="logo" style="font-size:16px;">Holiday Inn Express Toluca</a>
     <span class="menu-btn"><i class="fa fa-bars"></i></span>
     <ul class="ts-profile-nav">
         <li class="ts-account">
@@ -18,7 +18,7 @@
 <?php
 } else { ?>
 <div class="brand clearfix">
-    <a href="#" class="logo" style="font-size:16px;"><b>Holiday Inn Express Toluca| </b> <b> ConfiguroWeb</b></a>
+    <a href="#" class="logo" style="font-size:16px;"><b>Holiday Inn Express Toluca</a>
     <span class="menu-btn"><i class="fa fa-bars"></i></span>
 
 </div>

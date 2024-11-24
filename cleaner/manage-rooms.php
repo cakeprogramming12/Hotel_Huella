@@ -1,20 +1,20 @@
-<?php
+<?php 
 session_start();
 include('includes/config.php');
 include('includes/checklogin.php');
 check_login();
 
-if(isset($_GET['del']))
-{
-	$id=intval($_GET['del']);
-	$adn="delete from registration where id=?";
-	$stmt= $mysqli->prepare($adn);
-	$stmt->bind_param('i', $id);
-	$stmt->execute();
-	$stmt->close();	   
-	echo "<script>alert('Data Deleted');</script>";
+if(isset($_GET['del'])) {
+    $id = intval($_GET['del']);
+    $adn = "DELETE FROM rooms WHERE id=?";
+    $stmt = $mysqli->prepare($adn);
+    $stmt->bind_param('i', $id);
+    $stmt->execute();
+    $stmt->close();   
+    echo "<script>alert('Dato Borrado');</script>";
 }
 ?>
+
 <!doctype html>
 <html lang="en" class="no-js">
 
@@ -34,87 +34,81 @@ if(isset($_GET['del']))
     <link rel="stylesheet" href="css/fileinput.min.css">
     <link rel="stylesheet" href="css/awesome-bootstrap-checkbox.css">
     <link rel="stylesheet" href="css/style.css">
-    <script language="javascript" type="text/javascript">
-    var popUpWin = 0;
-
-    function popUpWindow(URLStr, left, top, width, height) {
-        if (popUpWin) {
-            if (!popUpWin.closed) popUpWin.close();
-        }
-        popUpWin = open(URLStr, 'popUpWin',
-            'toolbar=no,location=no,directories=no,status=no,menubar=no,scrollbars=yes,resizable=no,copyhistory=yes,width=' +
-            510 + ',height=' + 430 + ',left=' + left + ', top=' + top + ',screenX=' + left + ',screenY=' + top + '');
+    <style>
+    .limpia {
+        color: green;
     }
-    </script>
+
+    .no-limpia {
+        color: red;
+    }
+    </style>
 </head>
 
 <body>
-    <?php include('includes/header.php'); ?>
+    <?php include('includes/header.php');?>
 
     <div class="ts-main-content">
-        <?php include('includes/sidebar.php'); ?>
+        <?php include('includes/sidebar.php');?>
         <div class="content-wrapper">
             <div class="container-fluid">
                 <div class="row">
                     <div class="col-md-12">
                         </br></br>
-                        <h2 class="page-title">Administración de Registro de Estudiantes</h2>
+                        <h2 class="page-title">Administrar Limpieza </h2>
                         <div class="panel panel-default">
-                            <div class="panel-heading">Detalles de Cuarto</div>
+                            <div class="panel-heading">Detalle de limpieza</div>
                             <div class="panel-body">
                                 <table id="zctb" class="display table table-striped table-bordered table-hover"
                                     cellspacing="0" width="100%">
                                     <thead>
                                         <tr>
                                             <th>Serie.</th>
-                                            <th>Nombre del Estudiante</th>
-                                            <th>No de Contacto </th>
-                                            <th>No de Cuarto</th>
                                             <th>Habitaciones</th>
-                                            <th>Estadía desde</th>
+                                            <th>No Cuarto</th>
+                                            <th>Estado Limpieza</th>
                                             <th>Acción</th>
                                         </tr>
                                     </thead>
                                     <tfoot>
                                         <tr>
                                             <th>Serie.</th>
-                                            <th>Nombre del Estudiante</th>
-                                            <th>No de Contacto </th>
-                                            <th>No de Cuarto</th>
                                             <th>Habitaciones</th>
-                                            <th>Estadía desde</th>
+                                            <th>No Cuarto</th>
+                                            <th>Estado Limpieza</th>
                                             <th>Acción</th>
                                         </tr>
                                     </tfoot>
                                     <tbody>
-                                        <?php
-										$aid = $_SESSION['id'];
-										$ret = "select * from registration";
-										$stmt = $mysqli->prepare($ret);
-										$stmt->execute();
-										$res = $stmt->get_result();
-										$cnt = 1;
-										while ($row = $res->fetch_object()) {
-										?>
+                                        <?php	
+                                            $aid = $_SESSION['id'];
+                                            $ret = "SELECT * FROM rooms";
+                                            $stmt = $mysqli->prepare($ret);
+                                            $stmt->execute();
+                                            $res = $stmt->get_result();
+                                            $cnt = 1;
+                                            while($row = $res->fetch_object()) {
+                                        ?>
                                         <tr>
                                             <td><?php echo $cnt; ?></td>
-                                            <td><?php echo $row->firstName; ?> <?php echo $row->middleName; ?>
-                                                <?php echo $row->lastName; ?></td>
-                                            <td><?php echo $row->contactno; ?></td>
-                                            <td><?php echo $row->roomno; ?></td>
                                             <td><?php echo $row->seater; ?></td>
-                                            <td><?php echo $row->stayfrom; ?></td>
+                                            <td><?php echo $row->room_no; ?></td>
+                                            <td class="<?php echo ($row->clean == 1) ? 'limpia' : 'no-limpia'; ?>">
+                                                <?php echo ($row->clean == 1) ? 'Limpia' : 'No Limpia'; ?>
+                                            </td>
                                             <td>
-                                                <a href="manage-students.php?del=<?php echo $row->id; ?>"
-                                                    title="Delete Record"
-                                                    onclick="return confirm('Do you want to delete');">
+                                                <a href="edit-room.php?id=<?php echo $row->id;?>">
+                                                    <i class="fa fa-edit"></i>
+                                                </a>&nbsp;&nbsp;
+                                                <a href="manage-rooms.php?del=<?php echo $row->id;?>"
+                                                    onclick="return confirm('¿Deseas eliminar este registro?');">
                                                     <i class="fa fa-close"></i>
                                                 </a>
                                             </td>
                                         </tr>
                                         <?php
-											$cnt = $cnt + 1;
-										} ?>
+                                            $cnt = $cnt + 1;
+                                        } ?>
                                     </tbody>
                                 </table>
                             </div>

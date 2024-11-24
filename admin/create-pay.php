@@ -26,7 +26,7 @@ if ($_POST['submit']) {
         $stmt = $mysqli->prepare($query);
         $rc = $stmt->bind_param('sds', $registration_id, $amount_due, $payment_date);
         $stmt->execute();
-        echo "<script>alert('El registro se ha agregado correctamente');</script>";
+        echo "<script>alert('El registro se ha agregado correctamente, se procedera a escanear su huella');</script>";
     }
 }
 ?>
@@ -62,6 +62,7 @@ if ($_POST['submit']) {
                         <div class="row">
                             <div class="col-md-12">
                                 <div class="panel panel-default">
+
                                     <div class="panel-heading">Detalles del Registro</div>
                                     <div class="panel-body">
                                         <?php if (isset($_POST['submit'])) { ?>
@@ -95,6 +96,7 @@ if ($_POST['submit']) {
                                                         required="required">
                                                 </div>
                                             </div>
+
 
                                             <div class="col-sm-8 col-sm-offset-2">
                                                 <input class="btn btn-primary" type="submit" name="submit"

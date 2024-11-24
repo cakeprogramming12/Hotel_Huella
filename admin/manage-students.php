@@ -4,17 +4,39 @@ include('includes/config.php');
 include('includes/checklogin.php');
 check_login();
 
-if(isset($_GET['del']))
-{
-	$id=intval($_GET['del']);
-	$adn="delete from registration where id=?";
-	$stmt= $mysqli->prepare($adn);
-	$stmt->bind_param('i', $id);
-	$stmt->execute();
-	$stmt->close();	   
-	echo "<script>alert('Data Deleted');</script>";
+if (isset($_GET['del'])) {
+    $id = intval($_GET['del']);
+    
+    // Iniciar transacción para garantizar consistencia en las eliminaciones
+    $mysqli->begin_transaction();
+
+    try {
+        // Eliminar registros relacionados en la tabla hostel_finances
+        $delete_finances = "DELETE FROM hostel_finances WHERE registration_id = ?";
+        $stmt_finances = $mysqli->prepare($delete_finances);
+        $stmt_finances->bind_param('i', $id);
+        $stmt_finances->execute();
+        $stmt_finances->close();
+
+        // Eliminar el registro principal en la tabla hostel_registration
+        $delete_registration = "DELETE FROM registration WHERE id = ?";
+        $stmt_registration = $mysqli->prepare($delete_registration);
+        $stmt_registration->bind_param('i', $id);
+        $stmt_registration->execute();
+        $stmt_registration->close();
+
+        // Confirmar cambios
+        $mysqli->commit();
+
+        echo "<script>alert('Registro eliminado exitosamente');</script>";
+    } catch (Exception $e) {
+        // Revertir cambios en caso de error
+        $mysqli->rollback();
+        echo "<script>alert('Error al eliminar los datos: {$e->getMessage()}');</script>";
+    }
 }
 ?>
+
 <!doctype html>
 <html lang="en" class="no-js">
 

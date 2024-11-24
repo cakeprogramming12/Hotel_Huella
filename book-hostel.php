@@ -57,7 +57,7 @@ if (isset($_POST['submit'])) {
         );
 
         if ($stmt->execute()) {
-            echo "<script>alert('Registro Satisfactorio de Estudiante');</script>";
+            echo "<script>alert('Registro Satisfactorio');</script>";
         } else {
             echo "<script>alert('Error al registrar: " . $stmt->error . "');</script>";
         }

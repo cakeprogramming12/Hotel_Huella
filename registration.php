@@ -15,7 +15,7 @@ if(isset($_POST['submit']))
     $stmt = $mysqli->prepare($query);
     $rc = $stmt->bind_param('ssssiss', $fname, $mname, $lname, $gender, $contactno, $emailid, $password);
     $stmt->execute();
-    echo "<script>alert('Estudiante registrado exitosamente');</script>";
+    echo "<script>alert('Uusario registrado exitosamente');</script>";
 }
 ?>
 ?>
@@ -86,14 +86,14 @@ if(isset($_POST['submit']))
                                             </div>
 
                                             <div class="form-group">
-                                                <label class="col-sm-2 control-label">Segundo Nombre </label>
+                                                <label class="col-sm-2 control-label">Apellido paterno </label>
                                                 <div class="col-sm-8">
                                                     <input type="text" name="mname" id="mname" class="form-control">
                                                 </div>
                                             </div>
 
                                             <div class="form-group">
-                                                <label class="col-sm-2 control-label">Apellido </label>
+                                                <label class="col-sm-2 control-label">Apellido Materno </label>
                                                 <div class="col-sm-8">
                                                     <input type="text" name="lname" id="lname" class="form-control"
                                                         required="required">

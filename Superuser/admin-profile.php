@@ -87,7 +87,7 @@ $chngpwd1->bind_param('ssi',$np,$udate,$ai);
                 <div class="row">
                     <div class="col-md-12">
 
-                        <h2 class="page-title">Administrar Perfil</h2>
+                        <h2 class="page-title">Administrar Perfil SUPER USUARIO</h2>
                         <?php	
 $aid=$_SESSION['id'];
 	$ret="select * from super where id=?";

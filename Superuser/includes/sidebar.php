@@ -3,22 +3,41 @@
 
         <li class="ts-label">ConfiguroWeb</li>
         <li><a href="dashboard.php"><i class="fa fa-dashboard"></i> Consola</a></li>
-        <li><a href="#"><i class="fa fa-desktop"></i> Cuartos</a>
+
+        <li><a href="#"><i class="fa fa-desktop"></i>Modificar Cuartos</a>
             <ul>
-                <li><a href="create-room.php">Agregar un Cuarto</a></li>
+                <li><a href="create-room.php">Agregar un Cuartos</a></li>
                 <li><a href="manage-rooms.php">Administrar Cuartos</a></li>
             </ul>
         </li>
 
-        <li><a href="manage-students.php"><i class="fa fa-users"></i>Administrar clientes</a></li>
-        <li><a href="access-log.php"><i class="fa fa-file"></i>Registro de Acceso de clientes</a></li>
-
-        <li><a href="#"><i class="fa fa-desktop"></i> Control de pagos</a>
+        <li><a href="#"><i class="fa fa-desktop"></i>Modificar facturas</a>
             <ul>
-                <li><a href="create-pay.php">Confirmar reservaciones</a></li>
-                <li><a href="manage-pay.php">Administrar ganancias</a></li>
+                <li><a href="manage-pay.php">Administrar facturas</a></li>
             </ul>
         </li>
 
+        <li><a href="#"><i class="fa fa-desktop"></i>Modificar personal de limpieza</a>
+            <ul>
+                <li><a href="create-personal.php">Agregar personal</a></li>
+                <li><a href="manage-personal.php">Administrar personal</a></li>
+            </ul>
+        </li>
+
+
+        <li><a href="#"><i class="fa fa-desktop"></i>Modificar clientes</a>
+            <ul>
+                <li><a href="create-clientes.php">Agregar clientes</a></li>
+                <li><a href="manage-clientes.php">Administrar clientes</a></li>
+            </ul>
+        </li>
+
+
+        <li><a href="#"><i class="fa fa-desktop"></i>Moficar admins</a>
+            <ul>
+                <li><a href="create-admin.php">Agregar un admin</a></li>
+                <li><a href="manage-admins.php">Administrar admins</a></li>
+            </ul>
+        </li>
 
 </nav>

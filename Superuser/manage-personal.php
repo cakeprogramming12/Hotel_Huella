@@ -6,12 +6,12 @@ check_login();
 
 if (isset($_GET['del'])) {
     $id = intval($_GET['del']);
-    $adn = "DELETE FROM registration WHERE id=?";
+    $adn = "DELETE FROM cleaner WHERE id=?";
     $stmt = $mysqli->prepare($adn);
     $stmt->bind_param('i', $id);
     $stmt->execute();
     $stmt->close();
-    echo "<script>alert('Registro eliminado con éxito');</script>";
+    echo "<script>alert('Dato Borrado');</script>";
 }
 ?>
 <!doctype html>
@@ -24,7 +24,7 @@ if (isset($_GET['del'])) {
     <meta name="description" content="">
     <meta name="author" content="">
     <meta name="theme-color" content="#3e454c">
-    <title>Gestionar Registros</title>
+    <title>Administrar Cleaners</title>
     <link rel="stylesheet" href="css/font-awesome.min.css">
     <link rel="stylesheet" href="css/bootstrap.min.css">
     <link rel="stylesheet" href="css/dataTables.bootstrap.min.css">
@@ -45,39 +45,37 @@ if (isset($_GET['del'])) {
                 <div class="row">
                     <div class="col-md-12">
                         </br></br>
-                        <h2 class="page-title">Gestionar reservas</h2>
+                        <h2 class="page-title">Administrar Cleaners</h2>
                         <div class="panel panel-default">
-                            <div class="panel-heading">Detalles de todos los registros</div>
+                            <div class="panel-heading">Detalle de todos los Cleaners</div>
                             <div class="panel-body">
                                 <table id="zctb" class="display table table-striped table-bordered table-hover"
                                     cellspacing="0" width="100%">
                                     <thead>
                                         <tr>
                                             <th>ID</th>
-                                            <th>Habitación</th>
-                                            <th>Nombre Completo</th>
-                                            <th>Contacto</th>
+                                            <th>Nombre de Usuario</th>
                                             <th>Email</th>
+                                            <th>Contraseña</th>
                                             <th>Fecha de Registro</th>
-                                            <th>Código Alfanumérico</th>
+                                            <th>Última Actualización</th>
                                             <th>Acción</th>
                                         </tr>
                                     </thead>
                                     <tfoot>
                                         <tr>
                                             <th>ID</th>
-                                            <th>Habitación</th>
-                                            <th>Nombre Completo</th>
-                                            <th>Contacto</th>
+                                            <th>Nombre de Usuario</th>
                                             <th>Email</th>
+                                            <th>Contraseña</th>
                                             <th>Fecha de Registro</th>
-                                            <th>Código Alfanumérico</th>
+                                            <th>Última Actualización</th>
                                             <th>Acción</th>
                                         </tr>
                                     </tfoot>
                                     <tbody>
                                         <?php
-                                        $ret = "SELECT id, roomno, CONCAT(firstName, ' ', middleName, ' ', lastName) AS fullName, contactno, emailid, postingDate, codigo_alfanumerico FROM registration";
+                                        $ret = "SELECT * FROM cleaner";
                                         $stmt = $mysqli->prepare($ret);
                                         $stmt->execute();
                                         $res = $stmt->get_result();
@@ -85,16 +83,15 @@ if (isset($_GET['del'])) {
                                         ?>
                                         <tr>
                                             <td><?php echo $row->id; ?></td>
-                                            <td><?php echo $row->roomno; ?></td>
-                                            <td><?php echo $row->fullName; ?></td>
-                                            <td><?php echo $row->contactno; ?></td>
-                                            <td><?php echo $row->emailid; ?></td>
-                                            <td><?php echo $row->postingDate; ?></td>
-                                            <td><?php echo $row->codigo_alfanumerico; ?></td>
+                                            <td><?php echo $row->username; ?></td>
+                                            <td><?php echo $row->email; ?></td>
+                                            <td><?php echo $row->password; ?></td>
+                                            <td><?php echo $row->reg_date; ?></td>
+                                            <td><?php echo $row->updation_date; ?></td>
                                             <td>
-                                                <a href="edit-registration.php?id=<?php echo $row->id; ?>"><i
+                                                <a href="edit-cleaner.php?id=<?php echo $row->id; ?>"><i
                                                         class="fa fa-edit"></i></a>&nbsp;&nbsp;
-                                                <a href="manage-registration.php?del=<?php echo $row->id; ?>"
+                                                <a href="manage-cleaner.php?del=<?php echo $row->id; ?>"
                                                     onclick="return confirm('¿Deseas borrar este registro?');"><i
                                                         class="fa fa-close"></i></a>
                                             </td>

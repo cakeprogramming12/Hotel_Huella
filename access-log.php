@@ -47,8 +47,6 @@ check_login();
                                             <th>Id</th>
                                             <th>Correo</th>
                                             <th>IP</th>
-                                            <th>Ciudad</th>
-                                            <th>País</th>
                                             <th>Hora de Sesión</th>
                                         </tr>
                                     </thead>
@@ -58,8 +56,6 @@ check_login();
                                             <th>Id</th>
                                             <th>Correo</th>
                                             <th>IP</th>
-                                            <th>Ciudad</th>
-                                            <th>País</th>
                                             <th>Hora de Sesión</th>
                                         </tr>
                                     </tfoot>
@@ -80,8 +76,6 @@ while($row=$res->fetch_object())
                                             <td><?php echo $row->userId;?></td>
                                             <td><?php echo $row->userEmail;?></td>
                                             <td><?php echo $row->userIp;?></td>
-                                            <td><?php echo $row->city;?></td>
-                                            <td><?php echo $row->country;?></td>
                                             <td><?php echo $row->loginTime;?></td>
                                         </tr>
                                         <?php

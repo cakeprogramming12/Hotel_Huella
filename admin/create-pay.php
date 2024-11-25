@@ -11,7 +11,7 @@ if ($_POST['submit']) {
     $payment_date = $_POST['payment_date'];
 
     // Verificar si el registro ya existe
-    $sql = "SELECT registration_id FROM hotel_finances WHERE registration_id=?";
+    $sql = "SELECT registration_id FROM hostel_finances WHERE registration_id=?";
     $stmt1 = $mysqli->prepare($sql);
     $stmt1->bind_param('s', $registration_id);
     $stmt1->execute();
@@ -22,7 +22,7 @@ if ($_POST['submit']) {
         echo "<script>alert('El registro ya existe');</script>";
     } else {
         // Insertar el nuevo registro
-        $query = "INSERT INTO hotel_finances (registration_id, amount_due, payment_date) VALUES (?, ?, ?)";
+        $query = "INSERT INTO hostel_finances (registration_id, amount_due, payment_date) VALUES (?, ?, ?)";
         $stmt = $mysqli->prepare($query);
         $rc = $stmt->bind_param('sds', $registration_id, $amount_due, $payment_date);
         $stmt->execute();

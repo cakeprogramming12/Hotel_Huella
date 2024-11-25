@@ -47,7 +47,7 @@ check_login();
                 <div class="row">
                     <div class="col-md-12">
                         <br><br>
-                        <h2 class="page-title">Detalles de tu Reserva</h2>
+                        <h2 class="page-title">Factura</h2>
 
                         <button onclick="window.location.href='https://link.mercadopago.com.mx/holidayinnexpress' ">
                             Pagar con Mercado Pago
@@ -117,7 +117,7 @@ check_login();
 
                                         <tr>
                                             <td><b>Nombre Completo</b></td>
-                                            <td><?php echo $row->firstName; ?> <?php echo $row->middleName; ?>
+                                            <td><?php echo $row->firstName; ?> <?php ?>
                                                 <?php echo $row->lastName; ?></td>
                                             <td><b>Email</b></td>
                                             <td><?php echo $row->emailid; ?></td>
@@ -126,12 +126,12 @@ check_login();
                                         </tr>
 
                                         <tr>
-                                            <td><b>No. Contacto de Emergencia</b></td>
-                                            <td><?php echo $row->egycontactno; ?></td>
+                                            <td><b></b></td>
+                                            <td><?php ?></td>
                                             <td><b>Nombre contacto de Emergencia</b></td>
                                             <td><?php echo $row->guardianName; ?></td>
-                                            <td><b>Parentesco</b></td>
-                                            <td><?php echo $row->guardianRelation; ?></td>
+                                            <td><b></b></td>
+                                            <td><?php ?></td>
                                         </tr>
 
                                         <tr>

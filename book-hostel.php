@@ -315,7 +315,7 @@ $aid=$_SESSION['id'];
                                             </div>
                                             <?php } ?>
                                             <div class="form-group">
-                                                <label class="col-sm-2 control-label">Contacto de Emergencia: </label>
+                                                <label class="col-sm-2 control-label">Correo de Emergencia: </label>
                                                 <div class="col-sm-8">
                                                     <input type="text" name="econtact" id="econtact"
                                                         class="form-control" required="required">

@@ -77,7 +77,7 @@ if (isset($_GET['del'])) {
                                     </tfoot>
                                     <tbody>
                                         <?php
-                                        $ret = "SELECT id, roomno, CONCAT(firstName, ' ', middleName, ' ', lastName) AS fullName, contactno, emailid, postingDate, codigo_alfanumerico FROM registration";
+                                        $ret = "SELECT id, roomno, CONCAT(firstName, ' ', lastName) AS fullName, contactno, emailid, postingDate, codigo_alfanumerico FROM registration";
                                         $stmt = $mysqli->prepare($ret);
                                         $stmt->execute();
                                         $res = $stmt->get_result();

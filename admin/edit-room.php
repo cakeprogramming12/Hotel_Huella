@@ -66,7 +66,7 @@ if($_POST['submit'])
                                     ?>
                                     <div class="hr-dashed"></div>
                                     <div class="form-group">
-                                        <label class="col-sm-2 control-label">Cuartos</label>
+                                        <label class="col-sm-2 control-label">Camas</label>
                                         <div class="col-sm-8">
                                             <input type="text" name="seater" value="<?php echo $row->seater; ?>"
                                                 class="form-control">

@@ -51,7 +51,7 @@ if (isset($_GET['del'])) {
                                             <th>#</th>
                                             <th>Nombre Completo</th>
                                             <th>No. Cuarto</th>
-                                            <th>Habitaciones</th>
+                                            <th>camas</th>
                                             <th>Costo</th>
                                             <th>Fecha Inicio</th>
                                             <th>Duración</th>
@@ -63,7 +63,7 @@ if (isset($_GET['del'])) {
                                             <th>#</th>
                                             <th>Nombre Completo</th>
                                             <th>No. Cuarto</th>
-                                            <th>Habitaciones</th>
+                                            <th>camas</th>
                                             <th>Costo</th>
                                             <th>Fecha Inicio</th>
                                             <th>Duración</th>

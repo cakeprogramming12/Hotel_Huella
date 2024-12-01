@@ -4,20 +4,18 @@ include('includes/config.php');
 include('includes/checklogin.php');
 check_login();
 
-if($_POST['submit'])
-{
-    $seater = $_POST['seater'];
+if ($_POST['submit']) {
+    $room_type = $_POST['room_type'];
     $fees = $_POST['fees'];
     $ocupada = isset($_POST['ocupada']) ? 1 : 0; // Verifica si el checkbox está marcado
     $id = $_GET['id'];
 
-    $query = "UPDATE rooms SET seater=?, fees=?, ocupada=? WHERE id=?";
+    $query = "UPDATE rooms SET room_type=?, fees=?, ocupada=? WHERE id=?";
     $stmt = $mysqli->prepare($query);
-    $rc = $stmt->bind_param('iiii', $seater, $fees, $ocupada, $id);
+    $rc = $stmt->bind_param('siii', $room_type, $fees, $ocupada, $id);
     $stmt->execute();
     echo "<script>alert('Los detalles de la habitación se han actualizado correctamente');</script>";
 }
-
 ?>
 <!doctype html>
 <html lang="en" class="no-js">
@@ -66,10 +64,10 @@ if($_POST['submit'])
                                     ?>
                                     <div class="hr-dashed"></div>
                                     <div class="form-group">
-                                        <label class="col-sm-2 control-label">Camas</label>
+                                        <label class="col-sm-2 control-label">Tipo de Habitación</label>
                                         <div class="col-sm-8">
-                                            <input type="text" name="seater" value="<?php echo $row->seater; ?>"
-                                                class="form-control">
+                                            <input type="text" name="room_type" value="<?php echo $row->room_type; ?>"
+                                                class="form-control" required>
                                         </div>
                                     </div>
                                     <div class="form-group">
@@ -85,7 +83,7 @@ if($_POST['submit'])
                                         <label class="col-sm-2 control-label">Costo</label>
                                         <div class="col-sm-8">
                                             <input type="text" class="form-control" name="fees"
-                                                value="<?php echo $row->fees; ?>">
+                                                value="<?php echo $row->fees; ?>" required>
                                         </div>
                                     </div>
                                     <div class="form-group">

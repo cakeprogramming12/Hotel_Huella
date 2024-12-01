@@ -4,15 +4,14 @@ include('includes/config.php');
 include('includes/checklogin.php');
 check_login();
 
-if(isset($_GET['del']))
-{
-    $id=intval($_GET['del']);
-    $adn="delete from rooms where id=?";
-    $stmt= $mysqli->prepare($adn);
-    $stmt->bind_param('i',$id);
+if (isset($_GET['del'])) {
+    $id = intval($_GET['del']);
+    $adn = "delete from rooms where id=?";
+    $stmt = $mysqli->prepare($adn);
+    $stmt->bind_param('i', $id);
     $stmt->execute();
     $stmt->close();	   
-    echo "<script>alert('Dato Borrado');</script>" ;
+    echo "<script>alert('Dato Borrado');</script>";
 }
 ?>
 <!doctype html>
@@ -29,18 +28,14 @@ if(isset($_GET['del']))
     <link rel="stylesheet" href="css/font-awesome.min.css">
     <link rel="stylesheet" href="css/bootstrap.min.css">
     <link rel="stylesheet" href="css/dataTables.bootstrap.min.css">
-    <link rel="stylesheet" href="css/bootstrap-social.css">
-    <link rel="stylesheet" href="css/bootstrap-select.css">
-    <link rel="stylesheet" href="css/fileinput.min.css">
-    <link rel="stylesheet" href="css/awesome-bootstrap-checkbox.css">
     <link rel="stylesheet" href="css/style.css">
 </head>
 
 <body>
-    <?php include('includes/header.php');?>
+    <?php include('includes/header.php'); ?>
 
     <div class="ts-main-content">
-        <?php include('includes/sidebar.php');?>
+        <?php include('includes/sidebar.php'); ?>
         <div class="content-wrapper">
             <div class="container-fluid">
                 <div class="row">
@@ -55,7 +50,7 @@ if(isset($_GET['del']))
                                     <thead>
                                         <tr>
                                             <th>Serie.</th>
-                                            <th>camas</th>
+                                            <th>Tipo de Habitación</th>
                                             <th>No Cuarto.</th>
                                             <th>Costes</th>
                                             <th>Estado (Ocupada)</th>
@@ -66,7 +61,7 @@ if(isset($_GET['del']))
                                     <tfoot>
                                         <tr>
                                             <th>Serie.</th>
-                                            <th>camas</th>
+                                            <th>Tipo de Habitación</th>
                                             <th>No Cuarto.</th>
                                             <th>Costes</th>
                                             <th>Estado (Ocupada)</th>
@@ -75,19 +70,17 @@ if(isset($_GET['del']))
                                         </tr>
                                     </tfoot>
                                     <tbody>
-                                        <?php	
-$aid=$_SESSION['id'];
-$ret="select * from rooms";
-$stmt= $mysqli->prepare($ret);
-$stmt->execute();
-$res=$stmt->get_result();
-$cnt=1;
-while($row=$res->fetch_object())
-{
-?>
+                                        <?php
+                                        $ret = "SELECT * FROM rooms";
+                                        $stmt = $mysqli->prepare($ret);
+                                        $stmt->execute();
+                                        $res = $stmt->get_result();
+                                        $cnt = 1;
+                                        while ($row = $res->fetch_object()) {
+                                        ?>
                                         <tr>
                                             <td><?php echo $cnt; ?></td>
-                                            <td><?php echo $row->seater; ?></td>
+                                            <td><?php echo $row->room_type; ?></td>
                                             <td><?php echo $row->room_no; ?></td>
                                             <td><?php echo $row->fees; ?></td>
                                             <td><?php echo $row->ocupada ? 'Sí' : 'No'; ?></td>
@@ -96,14 +89,14 @@ while($row=$res->fetch_object())
                                                 <a href="edit-room.php?id=<?php echo $row->id; ?>"><i
                                                         class="fa fa-edit"></i></a>&nbsp;&nbsp;
                                                 <a href="manage-rooms.php?del=<?php echo $row->id; ?>"
-                                                    onclick="return confirm('Do you want to delete?');"><i
+                                                    onclick="return confirm('¿Desea eliminar este registro?');"><i
                                                         class="fa fa-close"></i></a>
                                             </td>
                                         </tr>
                                         <?php
-$cnt=$cnt+1;
-}
-?>
+                                            $cnt++;
+                                        }
+                                        ?>
                                     </tbody>
                                 </table>
                             </div>
@@ -120,9 +113,6 @@ $cnt=$cnt+1;
     <script src="js/bootstrap.min.js"></script>
     <script src="js/jquery.dataTables.min.js"></script>
     <script src="js/dataTables.bootstrap.min.js"></script>
-    <script src="js/Chart.min.js"></script>
-    <script src="js/fileinput.js"></script>
-    <script src="js/chartData.js"></script>
     <script src="js/main.js"></script>
 
 </body>

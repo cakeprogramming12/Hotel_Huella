@@ -5,7 +5,7 @@ include('includes/checklogin.php');
 check_login();
 
 // Código para actualizar el correo electrónico
-if ($_POST['update']) {
+if (isset($_POST['update'])) {
     $email = $_POST['emailid'];
     $aid = $_SESSION['id'];
     $udate = date('Y-m-d');
@@ -47,8 +47,6 @@ if (isset($_POST['changepwd'])) {
 }
 ?>
 
-
-
 <!doctype html>
 <html lang="en" class="no-js">
 
@@ -62,7 +60,7 @@ if (isset($_POST['changepwd'])) {
     <title>Cleaner Profile</title>
     <link rel="stylesheet" href="css/font-awesome.min.css">
     <link rel="stylesheet" href="css/bootstrap.min.css">
-    <link rel="stylesheet" href="css/dataTables.bootstrap.min.css">>
+    <link rel="stylesheet" href="css/dataTables.bootstrap.min.css">
     <link rel="stylesheet" href="css/bootstrap-social.css">
     <link rel="stylesheet" href="css/bootstrap-select.css">
     <link rel="stylesheet" href="css/fileinput.min.css">
@@ -72,7 +70,6 @@ if (isset($_POST['changepwd'])) {
     <script type="text/javascript" src="js/validation.min.js"></script>
     <script type="text/javascript">
     function valid() {
-
         if (document.changepwd.newpassword.value != document.changepwd.cpassword.value) {
             alert("Password and Re-Type Password Field do not match  !!");
             document.changepwd.cpassword.focus();
@@ -81,38 +78,34 @@ if (isset($_POST['changepwd'])) {
         return true;
     }
     </script>
-
 </head>
 
 <body>
-    <?php include('includes/header.php');?>
+    <?php include('includes/header.php'); ?>
     <div class="ts-main-content">
-        <?php include('includes/sidebar.php');?>
+        <?php include('includes/sidebar.php'); ?>
         <div class="content-wrapper">
             <div class="container-fluid">
-
                 <div class="row">
                     <div class="col-md-12">
-
+                        <br>
+                        <br>
                         <h2 class="page-title">Administrar Perfil</h2>
                         <?php	
 $aid = $_SESSION['id'];
 $ret = "SELECT * FROM cleaner WHERE id = ?";
 $stmt = $mysqli->prepare($ret);
 $stmt->bind_param('i', $aid);
-$stmt->execute(); // Ejecutar la consulta
+$stmt->execute();
 $res = $stmt->get_result();
-// $cnt = 1; // Si necesitas un contador, descomenta esta línea
 while ($row = $res->fetch_object()) {
 ?>
-
                         <div class="row">
                             <div class="col-md-6">
                                 <div class="panel panel-default">
                                     <div class="panel-heading">Administrar detalles de perfil</div>
                                     <div class="panel-body">
                                         <form method="post" class="form-horizontal">
-
                                             <div class="hr-dashed"></div>
                                             <div class="form-group">
                                                 <label class="col-sm-2 control-label">Usuario </label>
@@ -127,7 +120,6 @@ while ($row = $res->fetch_object()) {
                                                 <div class="col-sm-10">
                                                     <input type="email" class="form-control" name="emailid" id="emailid"
                                                         value="<?php echo $row->email;?>" required="required">
-
                                                 </div>
                                             </div>
                                             <div class="form-group">
@@ -137,31 +129,23 @@ while ($row = $res->fetch_object()) {
                                                         value="<?php echo $row->reg_date;?>" disabled>
                                                 </div>
                                             </div>
-
-
-
                                             <div class="col-sm-8 col-sm-offset-2">
                                                 <button class="btn btn-default" type="submit">Cancelar</button>
                                                 <input class="btn btn-primary" type="submit" name="update"
                                                     value="Actualizar Perfil">
                                             </div>
                                     </div>
-
                                     </form>
-
                                 </div>
                             </div>
-                            <?php }  ?>
+                            <?php } ?>
                             <div class="col-md-6">
                                 <div class="panel panel-default">
                                     <div class="panel-heading">Cambiar Contraseña</div>
                                     <div class="panel-body">
                                         <form method="post" class="form-horizontal" name="changepwd" id="change-pwd"
                                             onSubmit="return valid();">
-
-                                            <?php if(isset($_POST['changepwd']))
-{ ?>
-
+                                            <?php if(isset($_POST['changepwd'])) { ?>
                                             <p style="color: red">
                                                 <?php echo htmlentities($_SESSION['msg']); ?><?php echo htmlentities($_SESSION['msg']=""); ?>
                                             </p>
@@ -171,9 +155,7 @@ while ($row = $res->fetch_object()) {
                                                 <label class="col-sm-4 control-label">Contraseña Anterior </label>
                                                 <div class="col-sm-8">
                                                     <input type="password" value="" name="oldpassword" id="oldpassword"
-                                                        class="form-control" onBlur="checkpass()" required="required">
-                                                    <span id="password-availability-status" class="help-block m-b-none"
-                                                        style="font-size:12px;"></span>
+                                                        class="form-control" required="required">
                                                 </div>
                                             </div>
                                             <div class="form-group">
@@ -190,34 +172,20 @@ while ($row = $res->fetch_object()) {
                                                         required="required" id="cpassword" name="cpassword">
                                                 </div>
                                             </div>
-
-
-
                                             <div class="col-sm-6 col-sm-offset-4">
                                                 <button class="btn btn-default" type="submit">Cancelar</button>
                                                 <input type="submit" name="changepwd" Value="Cambiar contraseña"
                                                     class="btn btn-primary">
                                             </div>
-
                                         </form>
-
                                     </div>
                                 </div>
                             </div>
                         </div>
-
-
-
-
                     </div>
                 </div>
-
             </div>
         </div>
-
-
-    </div>
-    </div>
     </div>
     <script src="js/jquery.min.js"></script>
     <script src="js/bootstrap-select.min.js"></script>
@@ -228,36 +196,6 @@ while ($row = $res->fetch_object()) {
     <script src="js/fileinput.js"></script>
     <script src="js/chartData.js"></script>
     <script src="js/main.js"></script>
-    <script>
-    function checkAvailability() {
-        $("#loaderIcon").show();
-        jQuery.ajax({
-            url: "check_availability.php",
-            data: 'emailid=' + $("#emailid").val(),
-            type: "POST",
-            success: function(data) {
-                $("#user-availability-status").html(data);
-                $("#loaderIcon").hide();
-            },
-            error: function() {}
-        });
-    }
-    </script>
-    <script>
-    function checkpass() {
-        $("#loaderIcon").show();
-        jQuery.ajax({
-            url: "check_availability.php",
-            data: 'oldpassword=' + $("#oldpassword").val(),
-            type: "POST",
-            success: function(data) {
-                $("#password-availability-status").html(data);
-                $("#loaderIcon").hide();
-            },
-            error: function() {}
-        });
-    }
-    </script>
 </body>
 
 </html>

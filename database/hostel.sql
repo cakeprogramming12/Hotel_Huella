@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 24-11-2024 a las 18:18:28
+-- Tiempo de generación: 25-11-2024 a las 05:51:23
 -- Versión del servidor: 10.4.32-MariaDB
 -- Versión de PHP: 8.0.30
 
@@ -41,7 +41,8 @@ CREATE TABLE `admin` (
 --
 
 INSERT INTO `admin` (`id`, `username`, `email`, `password`, `reg_date`, `updation_date`) VALUES
-(1, 'configuroweb', 'msevillab@gmail.com', '123', '2016-04-04 20:31:45', '2016-04-17');
+(1, 'configuroweb1', 'msevillab@gmail.com', '123456789', '2016-04-04 20:31:45', '2024-11-24'),
+(6, 'admindaniel', 'admindaniel@gmail.com', '1234', '2024-11-25 11:38:11', '0000-00-00');
 
 -- --------------------------------------------------------
 
@@ -76,8 +77,9 @@ CREATE TABLE `cleaner` (
 --
 
 INSERT INTO `cleaner` (`id`, `username`, `email`, `password`, `reg_date`, `updation_date`) VALUES
-(1, 'jdoe', 'jdoe12@example.com', '1234', '2024-11-23 22:41:43', '2024-11-24'),
-(2, 'asmith', 'asmith@example.com', 'hashedpassword456', '2024-11-23 22:41:43', NULL);
+(1, 'jdoe', 'jdoe12@example.com', '12345678', '2024-11-23 22:41:43', '2024-11-25'),
+(2, 'lucasamith', 'asmith@example.com', 'hashedpassword456', '2024-11-23 22:41:43', '2024-11-24'),
+(3, 'Adrian', 'adrian@gmail.com', '123', '2024-11-25 11:15:22', '2024-11-24');
 
 -- --------------------------------------------------------
 
@@ -95,32 +97,6 @@ CREATE TABLE `cleanerlog` (
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `courses`
---
-
-CREATE TABLE `courses` (
-  `id` int(11) NOT NULL,
-  `course_code` varchar(255) NOT NULL,
-  `course_sn` varchar(255) NOT NULL,
-  `course_fn` varchar(255) NOT NULL,
-  `posting_date` timestamp NOT NULL DEFAULT current_timestamp()
-) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
-
---
--- Volcado de datos para la tabla `courses`
---
-
-INSERT INTO `courses` (`id`, `course_code`, `course_sn`, `course_fn`, `posting_date`) VALUES
-(8, 'AA5224', 'ADMON', 'AdministraciÃ³n de Empresas', '2019-12-13 19:53:56'),
-(10, 'SS24IU', 'SIP', 'PsicologÃ­a', '2019-12-13 19:57:04'),
-(11, 'II12EW', 'IS', 'IngenierÃ­a de Sistemas InformÃ¡ticos', '2019-12-13 20:02:43'),
-(13, 'IICI42', 'INCIV', 'IngenierÃ­a Civil', '2019-12-13 20:05:21'),
-(14, 'IIQQ23', 'INGQUIM', 'IngenierÃ­a QuÃ­mica', '2019-12-13 20:49:17'),
-(15, 'PP3210', 'PERD', 'ComunicaciÃ³n Social', '2019-12-13 20:51:07');
-
--- --------------------------------------------------------
-
---
 -- Estructura de tabla para la tabla `hostel_finances`
 --
 
@@ -130,6 +106,13 @@ CREATE TABLE `hostel_finances` (
   `amount_due` decimal(10,2) NOT NULL,
   `payment_date` date NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_spanish_ci;
+
+--
+-- Volcado de datos para la tabla `hostel_finances`
+--
+
+INSERT INTO `hostel_finances` (`id`, `registration_id`, `amount_due`, `payment_date`) VALUES
+(3, 25, 3100.00, '2024-11-25');
 
 -- --------------------------------------------------------
 
@@ -149,12 +132,12 @@ CREATE TABLE `registration` (
   `middleName` varchar(500) NOT NULL,
   `lastName` varchar(500) NOT NULL,
   `gender` varchar(250) NOT NULL,
-  `contactno` bigint(11) NOT NULL,
+  `contactno` int(11) NOT NULL,
   `emailid` varchar(500) NOT NULL,
-  `egycontactno` bigint(11) NOT NULL,
+  `egycontactno` varchar(11) NOT NULL,
   `guardianName` varchar(500) NOT NULL,
   `guardianRelation` varchar(500) NOT NULL,
-  `guardianContactno` bigint(11) NOT NULL,
+  `guardianContactno` varchar(11) NOT NULL,
   `corresAddress` varchar(500) NOT NULL,
   `corresCIty` varchar(500) NOT NULL,
   `corresState` varchar(255) DEFAULT NULL,
@@ -162,11 +145,18 @@ CREATE TABLE `registration` (
   `pmntAddress` varchar(500) NOT NULL,
   `pmntCity` varchar(500) NOT NULL,
   `pmnatetState` varchar(500) NOT NULL,
-  `pmntPincode` int(11) NOT NULL,
+  `pmntPincode` varchar(11) NOT NULL,
   `postingDate` timestamp NOT NULL DEFAULT current_timestamp(),
   `updationDate` varchar(500) NOT NULL,
   `codigo_alfanumerico` varchar(255) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
+
+--
+-- Volcado de datos para la tabla `registration`
+--
+
+INSERT INTO `registration` (`id`, `roomno`, `seater`, `feespm`, `foodstatus`, `stayfrom`, `duration`, `firstName`, `middleName`, `lastName`, `gender`, `contactno`, `emailid`, `egycontactno`, `guardianName`, `guardianRelation`, `guardianContactno`, `corresAddress`, `corresCIty`, `corresState`, `corresPincode`, `pmntAddress`, `pmntCity`, `pmnatetState`, `pmntPincode`, `postingDate`, `updationDate`, `codigo_alfanumerico`) VALUES
+(25, 101, 1, 500, 0, '2024-11-25', 5, 'Ramiro', '0', 'Meza', 'male', 2147483647, 'vegara@gmail.com', '0', 'luis', '0', '7228997888', 'Parque bosencheve 1305', '0', 'Mexico', 50100, 'Parque bosencheve 1305', '0', 'Mexico', '50100', '2024-11-25 03:11:06', '', 'IA7L6XOC8W');
 
 -- --------------------------------------------------------
 
@@ -180,19 +170,20 @@ CREATE TABLE `rooms` (
   `room_no` int(11) NOT NULL,
   `fees` int(11) NOT NULL,
   `posting_date` timestamp NOT NULL DEFAULT current_timestamp(),
-  `clean` tinyint(1) DEFAULT 0
+  `clean` tinyint(1) DEFAULT 0,
+  `ocupada` tinyint(1) DEFAULT 0
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
 
 --
 -- Volcado de datos para la tabla `rooms`
 --
 
-INSERT INTO `rooms` (`id`, `seater`, `room_no`, `fees`, `posting_date`, `clean`) VALUES
-(22, 1, 101, 500, '2024-11-20 04:30:22', 0),
-(23, 3, 201, 700, '2024-11-20 04:31:00', 0),
-(24, 3, 301, 900, '2024-11-20 04:32:44', 0),
-(25, 5, 501, 1000, '2024-11-24 16:56:15', 0),
-(26, 4, 401, 600, '2024-11-24 16:59:15', 0);
+INSERT INTO `rooms` (`id`, `seater`, `room_no`, `fees`, `posting_date`, `clean`, `ocupada`) VALUES
+(22, 1, 101, 500, '2024-11-20 04:30:22', 1, 1),
+(23, 3, 201, 600, '2024-11-20 04:31:00', 0, 0),
+(24, 3, 301, 900, '2024-11-20 04:32:44', 0, 0),
+(26, 4, 401, 600, '2024-11-24 16:59:15', 0, 0),
+(27, 4, 701, 800, '2024-11-25 03:23:46', 0, 0);
 
 -- --------------------------------------------------------
 
@@ -224,6 +215,32 @@ INSERT INTO `states` (`id`, `State`) VALUES
 -- --------------------------------------------------------
 
 --
+-- Estructura de tabla para la tabla `super`
+--
+
+CREATE TABLE `super` (
+  `id` int(11) NOT NULL,
+  `username` varchar(255) NOT NULL,
+  `email` varchar(255) NOT NULL,
+  `password` varchar(300) NOT NULL,
+  `reg_date` timestamp NOT NULL DEFAULT current_timestamp(),
+  `updation_date` date DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_spanish_ci;
+
+--
+-- Volcado de datos para la tabla `super`
+--
+
+INSERT INTO `super` (`id`, `username`, `email`, `password`, `reg_date`, `updation_date`) VALUES
+(1, 'admin1', 'adminprincipal@example.com', '123456789', '2024-11-24 22:57:13', '2024-11-25'),
+(2, 'admin2', 'admin2@example.com', 'securepass456', '2024-11-24 22:57:13', '2024-11-10'),
+(3, 'admin3', 'admin3@example.com', 'mypassword789', '2024-11-24 22:57:13', '2024-11-15'),
+(4, 'admin4', 'admin4@example.com', 'adminpass001', '2024-11-24 22:57:13', NULL),
+(5, 'admin5', 'admin5@example.com', 'testpass002', '2024-11-24 22:57:13', '2024-11-20');
+
+-- --------------------------------------------------------
+
+--
 -- Estructura de tabla para la tabla `userlog`
 --
 
@@ -232,8 +249,6 @@ CREATE TABLE `userlog` (
   `userId` int(11) NOT NULL,
   `userEmail` varchar(255) NOT NULL,
   `userIp` varbinary(16) NOT NULL,
-  `city` varchar(255) NOT NULL,
-  `country` varchar(255) NOT NULL,
   `loginTime` timestamp NOT NULL DEFAULT current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
 
@@ -241,38 +256,21 @@ CREATE TABLE `userlog` (
 -- Volcado de datos para la tabla `userlog`
 --
 
-INSERT INTO `userlog` (`id`, `userId`, `userEmail`, `userIp`, `city`, `country`, `loginTime`) VALUES
-(7, 22, 'hola@cw.com', 0x3a3a31, '', '', '2019-12-13 17:42:38'),
-(8, 22, 'hola@cw.com', 0x3a3a31, '', '', '2019-12-13 18:17:09'),
-(9, 22, 'hola@cw.com', 0x3a3a31, '', '', '2019-12-13 18:17:39'),
-(10, 22, 'hola@cw.com', 0x3a3a31, '', '', '2019-12-13 18:54:35'),
-(11, 22, 'hola@cw.com', 0x3a3a31, '', '', '2019-12-13 19:48:14'),
-(12, 22, 'hola@cw.com', 0x3a3a31, '', '', '2019-12-13 20:54:24'),
-(13, 22, 'hola@cw.com', 0x3a3a31, '', '', '2019-12-13 21:18:43'),
-(14, 22, 'hola@cw.com', 0x3a3a31, '', '', '2019-12-13 21:50:23'),
-(15, 23, 'hello@cw.com', 0x3a3a31, '', '', '2019-12-13 21:55:13'),
-(16, 23, 'hello@cw.com', 0x3a3a31, '', '', '2019-12-13 22:50:51'),
-(17, 22, 'hola@cw.com', 0x3a3a31, '', '', '2019-12-13 22:52:22'),
-(18, 21, 'm@g.com', 0x3a3a31, '', '', '2024-11-19 01:24:39'),
-(19, 21, 'm@g.com', 0x3a3a31, '', '', '2024-11-20 04:05:18'),
-(20, 21, 'm@g.com', 0x3a3a31, '', '', '2024-11-21 02:32:47'),
-(21, 21, 'm@g.com', 0x3a3a31, '', '', '2024-11-21 03:12:19'),
-(22, 21, 'm@g.com', 0x3a3a31, '', '', '2024-11-21 03:39:22'),
-(23, 21, 'm@g.com', 0x3a3a31, '', '', '2024-11-21 17:23:48'),
-(24, 25, 'carol@gmail.com', 0x3a3a31, '', '', '2024-11-21 17:59:58'),
-(25, 25, 'carol@gmail.com', 0x3a3a31, '', '', '2024-11-21 18:00:33'),
-(26, 25, 'carol@gmail.com', 0x3a3a31, '', '', '2024-11-21 18:01:44'),
-(27, 25, 'carol@gmail.com', 0x3a3a31, '', '', '2024-11-21 18:03:06'),
-(28, 25, 'carol@gmail.com', 0x3a3a31, '', '', '2024-11-21 18:06:18'),
-(29, 25, 'carol@gmail.com', 0x3a3a31, '', '', '2024-11-21 19:32:27'),
-(30, 25, 'carol@gmail.com', 0x3a3a31, '', '', '2024-11-22 03:09:17'),
-(31, 25, 'carol@gmail.com', 0x3a3a31, '', '', '2024-11-23 02:29:11'),
-(32, 25, 'carol@gmail.com', 0x3a3a31, '', '', '2024-11-24 03:18:46'),
-(33, 25, 'carol@gmail.com', 0x3a3a31, '', '', '2024-11-24 03:32:09'),
-(34, 24, 'vegaddd@gmail.com', 0x3a3a31, '', '', '2024-11-24 03:39:13'),
-(35, 25, 'carol@gmail.com', 0x3a3a31, '', '', '2024-11-24 04:42:35'),
-(36, 24, 'vegaddd@gmail.com', 0x3a3a31, '', '', '2024-11-24 05:25:39'),
-(37, 24, 'vegaddd@gmail.com', 0x3a3a31, '', '', '2024-11-24 15:35:37');
+INSERT INTO `userlog` (`id`, `userId`, `userEmail`, `userIp`, `loginTime`) VALUES
+(32, 25, 'carol@gmail.com', 0x3a3a31, '2024-11-24 03:18:46'),
+(33, 25, 'carol@gmail.com', 0x3a3a31, '2024-11-24 03:32:09'),
+(34, 24, 'vegaddd@gmail.com', 0x3a3a31, '2024-11-24 03:39:13'),
+(35, 25, 'carol@gmail.com', 0x3a3a31, '2024-11-24 04:42:35'),
+(36, 24, 'vegaddd@gmail.com', 0x3a3a31, '2024-11-24 05:25:39'),
+(37, 24, 'vegaddd@gmail.com', 0x3a3a31, '2024-11-24 15:35:37'),
+(38, 26, 'vegaramiro02@gmail.com', 0x3a3a31, '2024-11-24 17:23:15'),
+(39, 26, 'vegaramiro02@gmail.com', 0x3a3a31, '2024-11-24 17:35:42'),
+(40, 26, 'vegaramiro02@gmail.com', 0x3a3a31, '2024-11-24 21:25:33'),
+(41, 26, 'vegaramiro02@gmail.com', 0x3a3a31, '2024-11-24 22:31:12'),
+(42, 26, 'vegaramiro02@gmail.com', 0x3a3a31, '2024-11-24 23:54:51'),
+(43, 26, 'vegaramiro02@gmail.com', 0x3a3a31, '2024-11-25 01:37:22'),
+(44, 26, 'vegaramiro02@gmail.com', 0x3a3a31, '2024-11-25 02:05:19'),
+(45, 27, 'vegara@gmail.com', 0x3a3a31, '2024-11-25 02:48:03');
 
 -- --------------------------------------------------------
 
@@ -299,10 +297,7 @@ CREATE TABLE `userregistration` (
 --
 
 INSERT INTO `userregistration` (`id`, `firstName`, `middleName`, `lastName`, `gender`, `contactNo`, `email`, `password`, `regDate`, `updationDate`, `passUdateDate`) VALUES
-(21, 'Juan', 'Able', 'Process', 'male', 1231231230, 'm@g.com', '123123123', '2019-12-13 14:00:24', '', ''),
-(22, 'Mauricio', 'Sevilla', 'Perez', 'male', 123457890, 'hola@cw.com', '1234567890', '2019-12-13 17:42:01', '14-12-2019 01:20:53', ''),
-(24, 'rodirgo', 'vega', 'vega', 'male', 733333, 'vegaddd@gmail.com', '123', '2024-11-21 17:42:13', '', ''),
-(25, 'fernando', 'meza', 'vega', 'male', 777777777, 'carol@gmail.com', '123', '2024-11-21 17:58:09', '21-11-2024 11:42:59', '');
+(27, 'Ramiro', 'perezx', 'Meza', 'Masculino', 7228698438, 'vegara@gmail.com', '12345678', '2024-11-25 02:46:00', '2024-11-25 05:37:39', '25-11-2024 08:19:46');
 
 --
 -- Índices para tablas volcadas
@@ -326,12 +321,6 @@ ALTER TABLE `cleaner`
 ALTER TABLE `cleanerlog`
   ADD PRIMARY KEY (`id`),
   ADD KEY `cleanerid` (`cleanerid`);
-
---
--- Indices de la tabla `courses`
---
-ALTER TABLE `courses`
-  ADD PRIMARY KEY (`id`);
 
 --
 -- Indices de la tabla `hostel_finances`
@@ -360,6 +349,12 @@ ALTER TABLE `states`
   ADD PRIMARY KEY (`id`);
 
 --
+-- Indices de la tabla `super`
+--
+ALTER TABLE `super`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Indices de la tabla `userlog`
 --
 ALTER TABLE `userlog`
@@ -379,13 +374,13 @@ ALTER TABLE `userregistration`
 -- AUTO_INCREMENT de la tabla `admin`
 --
 ALTER TABLE `admin`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- AUTO_INCREMENT de la tabla `cleaner`
 --
 ALTER TABLE `cleaner`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT de la tabla `cleanerlog`
@@ -394,28 +389,22 @@ ALTER TABLE `cleanerlog`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT de la tabla `courses`
---
-ALTER TABLE `courses`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
-
---
 -- AUTO_INCREMENT de la tabla `hostel_finances`
 --
 ALTER TABLE `hostel_finances`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT de la tabla `registration`
 --
 ALTER TABLE `registration`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=20;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=26;
 
 --
 -- AUTO_INCREMENT de la tabla `rooms`
 --
 ALTER TABLE `rooms`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=27;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=28;
 
 --
 -- AUTO_INCREMENT de la tabla `states`
@@ -424,16 +413,22 @@ ALTER TABLE `states`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=100;
 
 --
+-- AUTO_INCREMENT de la tabla `super`
+--
+ALTER TABLE `super`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+
+--
 -- AUTO_INCREMENT de la tabla `userlog`
 --
 ALTER TABLE `userlog`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=38;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=46;
 
 --
 -- AUTO_INCREMENT de la tabla `userregistration`
 --
 ALTER TABLE `userregistration`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=26;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=28;
 
 --
 -- Restricciones para tablas volcadas

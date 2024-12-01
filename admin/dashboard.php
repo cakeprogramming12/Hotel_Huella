@@ -64,7 +64,7 @@ $stmt->close();
                                                     <div class="stat-panel-title text-uppercase"> Clientes</div>
                                                 </div>
                                             </div>
-                                            <a href="manage-students.php" class="block-anchor panel-footer">Mas
+                                            <a href="manage-reservaciones.php" class="block-anchor panel-footer">Mas
                                                 Información <i class="fa fa-arrow-right"></i></a>
                                         </div>
                                     </div>

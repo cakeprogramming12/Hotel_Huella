@@ -1,0 +1,536 @@
+<!DOCTYPE html>
+<html class="no-js" lang="zxx">
+
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="x-ua-compatible" content="ie=edge" />
+    <title>Holiday Inn Express Toluca</title>
+    <meta name="description" content="" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <!-- <link rel="manifest" href="site.webmanifest"> -->
+    <link rel="shortcut icon" type="image/x-icon" href="img/favicon.png" />
+    <!-- Place favicon.ico in the root directory -->
+
+    <!-- CSS here -->
+    <link rel="stylesheet" href="css/bootstrap.min.css" />
+    <link rel="stylesheet" href="css/owl.carousel.min.css" />
+    <link rel="stylesheet" href="css/magnific-popup.css" />
+    <link rel="stylesheet" href="css/font-awesome.min.css" />
+    <link rel="stylesheet" href="css/themify-icons.css" />
+    <link rel="stylesheet" href="css/nice-select.css" />
+    <link rel="stylesheet" href="css/flaticon.css" />
+    <link rel="stylesheet" href="css/gijgo.css" />
+    <link rel="stylesheet" href="css/animate.css" />
+    <link rel="stylesheet" href="css/slicknav.css" />
+    <link rel="stylesheet" href="css/style.css" />
+    <!-- <link rel="stylesheet" href="css/responsive.css"> -->
+</head>
+
+<body>
+    <!--[if lte IE 9]>
+      <p class="browserupgrade">
+        You are using an <strong>outdated</strong> browser. Please
+        <a href="https://browsehappy.com/">upgrade your browser</a> to improve
+        your experience and security.
+      </p>
+    <![endif]-->
+
+    <!-- header-start -->
+    <header>
+        <div class="header-area">
+            <div id="sticky-header" class="main-header-area">
+                <div class="container-fluid p-0">
+                    <div class="row align-items-center no-gutters">
+                        <div class="col-xl-5 col-lg-6">
+                            <div class="main-menu d-none d-lg-block">
+                                <nav>
+                                    <ul id="navigation">
+                                        <li><a class="active" href="index.php">inicio</a></li>
+                                        <li><a href="rooms.html">Habitaciones</a></li>
+                                        <li><a href="about.html">Acerca de</a></li>
+                                    </ul>
+                                </nav>
+                            </div>
+                        </div>
+                        <div class="col-xl-2 col-lg-2">
+                            <div class="logo-img">
+                                <a href="index.php">
+                                    <img src="img/logo.png" alt="" />
+                                </a>
+                            </div>
+                        </div>
+                        <div class="col-xl-5 col-lg-4 d-none d-lg-block">
+                            <div class="book_room">
+                                <div class="socail_links">
+                                    <ul>
+                                        <li>
+                                            <a href="#">
+                                                <i class="fa fa-facebook-square"></i>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="#">
+                                                <i class="fa fa-twitter"></i>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="#">
+                                                <i class="fa fa-instagram"></i>
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </div>
+                                <div class="book_btn d-none d-lg-block">
+                                    <a href="http://localhost/Holiday_Inn_Express_Toluca/Registro/index.php">Iniciar
+                                        sesión </a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-12">
+                            <div class="mobile_menu d-block d-lg-none"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+    <!-- header-end -->
+
+    <!-- slider_area_start -->
+    <div class="slider_area">
+        <div class="slider_active owl-carousel">
+            <div class="single_slider d-flex align-items-center justify-content-center slider_bg_1">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-xl-12">
+                            <div class="slider_text text-center">
+                                <h3>Holiday Inn Express Toluca Resort</h3>
+                                <p>Reserva para disfrutar la experiencia</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="single_slider d-flex align-items-center justify-content-center slider_bg_2">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-xl-12">
+                            <div class="slider_text text-center">
+                                <h3>Life is Beautiful</h3>
+                                <p>Instalaciones de primer nivel</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="single_slider d-flex align-items-center justify-content-center slider_bg_1">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-xl-12">
+                            <div class="slider_text text-center">
+                                <h3>Holiday Inn Express Toluca Resort</h3>
+                                <p>Reserva para disfrutar la experiencia</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="single_slider d-flex align-items-center justify-content-center slider_bg_2">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-xl-12">
+                            <div class="slider_text text-center">
+                                <h3>Life is Beautiful</h3>
+                                <p>Hotel 5 estrellas</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- slider_area_end -->
+
+    <!-- about_area_start -->
+    <div class="about_area">
+        <div class="container">
+            <div class="row">
+                <div class="col-xl-5 col-lg-5">
+                    <div class="about_info">
+                        <div class="section_title mb-20px">
+                            <span>acerca de nosotros</span>
+                            <h3>
+                                Holiday Inn Express Toluca <br />
+                                hotel de lujo
+                            </h3>
+                        </div>
+                        <p>
+                            Explora un oasis de elegancia y confort. Nuestro hotel combina
+                            atención personalizada, instalaciones modernas y un ambiente
+                            diseñado para tu descanso. Relájate en habitaciones acogedoras,
+                            disfruta de gastronomía exclusiva y vive momentos inolvidables
+                            en cada rincón. Todo lo que necesitas, en un solo lugar.
+                        </p>
+                        <a href="about.html" class="line-button">Learn More</a>
+                    </div>
+                </div>
+                <div class="col-xl-7 col-lg-7">
+                    <div class="about_thumb d-flex">
+                        <div class="img_1">
+                            <img src="img/about/about_1.png" alt="" />
+                        </div>
+                        <div class="img_2">
+                            <img src="img/about/about_2.png" alt="" />
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- about_area_end -->
+
+    <!-- habitacions de oferta_start -->
+    <div class="offers_area">
+        <div class="container">
+            <div class="row">
+                <div class="col-xl-12">
+                    <div class="section_title text-center mb-100">
+                        <span>Ofertas</span>
+                        <h3>Nuestras habitaciones en oferta</h3>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-xl-4 col-md-4">
+                    <div class="single_offers">
+                        <div class="about_thumb">
+                            <img src="img/offers/1.png" alt="" />
+                        </div>
+                        <h3>
+                            Habitación
+                            Sencilla
+                        </h3>
+                        <ul>
+                            <li>Precio: $500</li>
+                            <li>Ocupantes: 2 personas</li>
+                        </ul>
+                        <button class="book_now"
+                            onclick="window.location.href='http://localhost/Holiday_Inn_Express_Toluca/Registro/registration.php';">Hacer
+                            reservacion</button>
+                    </div>
+                </div>
+                <div class="col-xl-4 col-md-4">
+                    <div class="single_offers">
+                        <div class="about_thumb">
+                            <img src="img/offers/2.png" alt="" />
+                        </div>
+                        <h3>
+                            Habitación
+                            Jacuzzi
+                        </h3>
+                        <ul>
+                            <li>Precio: $900</li>
+                            <li>Ocupantes: 2 personas</li>
+                            <li> Jacuzzi</li>
+                        </ul>
+                        <button class="book_now"
+                            onclick="window.location.href='http://localhost/Holiday_Inn_Express_Toluca/Registro/registration.php';">Hacer
+                            reservacion</button>
+                    </div>
+                </div>
+                <div class="col-xl-4 col-md-4">
+                    <div class="single_offers">
+                        <div class="about_thumb">
+                            <img src="img/offers/3.png" alt="" />
+                        </div>
+                        <h3>
+                            Jacuzzi con Jardín
+                        </h3>
+                        <ul>
+                            <li>Precio: $1,000</li>
+                            <li>Ocupantes: 2 personas</li>
+                        </ul>
+                        <button class="book_now"
+                            onclick="window.location.href='http://localhost/Holiday_Inn_Express_Toluca/Registro/registration.php';">Hacer
+                            reservacion</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- habitacions de oferta_end -->
+
+
+    <!-- habitacion_lujo_startt -->
+    <div class="features_room">
+        <div class="container">
+            <div class="row">
+                <div class="col-xl-12">
+                    <div class="section_title text-center mb-100">
+                        <span>Habitaciones precidenciales</span>
+                        <h3>Elije una mejor habitacion</h3>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="rooms_here">
+            <div class="single_rooms">
+                <div class="room_thumb">
+                    <img src="img/rooms/1.png" alt="" />
+                    <div class="room_heading d-flex justify-content-between align-items-center">
+                        <div class="room_heading_inner">
+                            <span>Precio: $1,800/noche</span>
+                            <h3>Habitación
+                                Alberca</h3>
+                        </div>
+                        <a href="http://localhost/Holiday_Inn_Express_Toluca/Registro/registration.php"
+                            class="line-button">Hacer reservacion</a>
+                    </div>
+                </div>
+            </div>
+            <div class="single_rooms">
+                <div class="room_thumb">
+                    <img src="img/rooms/2.png" alt="" />
+                    <div class="room_heading d-flex justify-content-between align-items-center">
+                        <div class="room_heading_inner">
+                            <span>From $1850/noche</span>
+                            <h3>Habitación
+                                Suite</h3>
+                        </div>
+                        <a href="http://localhost/Holiday_Inn_Express_Toluca/Registro/registration.php"
+                            class="line-button">Hacer reservacion</a>
+                    </div>
+                </div>
+            </div>
+            <div class="single_rooms">
+                <div class="room_thumb">
+                    <img src="img/rooms/3.png" alt="" />
+                    <div class="room_heading d-flex justify-content-between align-items-center">
+                        <div class="room_heading_inner">
+                            <span>From $2000/noche</span>
+                            <h3>Habitación
+                                Jacuzzi con Sauna</h3>
+                        </div>
+                        <a href="http://localhost/Holiday_Inn_Express_Toluca/Registro/registration.php"
+                            class="line-button">Hacer reservacion</a>
+                    </div>
+                </div>
+            </div>
+            <div class="single_rooms">
+                <div class="room_thumb">
+                    <img src="img/rooms/4.png" alt="" />
+                    <div class="room_heading d-flex justify-content-between align-items-center">
+                        <div class="room_heading_inner">
+                            <span>precio $2500/noche</span>
+                            <h3>Suite Alberca con Habitación doble</h3>
+                        </div>
+                        <a href="http://localhost/Holiday_Inn_Express_Toluca/Registro/registration.php"
+                            class="line-button">Hacer reservacion</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- habitacion_lujo_end -->
+
+    <!-- forQuery_start -->
+    <div class="forQuery">
+        <div class="container">
+            <div class="row">
+                <div class="col-xl-10 offset-xl-1 col-md-12">
+                    <div class="Query_border">
+                        <div class="row align-items-center justify-content-center">
+                            <div class="col-xl-6 col-md-6">
+                                <div class="Query_text">
+                                    <p>Deseas obtener tu codigo de reservacion?</p>
+                                </div>
+                            </div>
+                            <div class="col-xl-6 col-md-6">
+                                <div class="phone_num">
+                                    <a href="http://localhost/Holiday_Inn_Express_Toluca/Registro/registration.php"
+                                        class="mobile_no">Da click</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- forQuery_end-->
+
+
+
+
+
+    <!-- video_area_start -->
+    <div class="video_area video_bg overlay">
+        <div class="video_area_inner text-center">
+            <span>Holiday Inn Express Toluca Sea View</span>
+            <h3>
+                Relajate y disfuta <br />
+                tus vacaciones
+            </h3>
+            <a href="https://youtu.be/8lpIWT2vFQ4" class="video_btn popup-video">
+                <i class="fa fa-play"></i>
+            </a>
+        </div>
+    </div>
+    <!-- video_area_end -->
+
+    <!-- about_area_start -->
+    <div class="about_area">
+        <div class="container">
+            <div class="row">
+                <div class="col-xl-7 col-lg-7">
+                    <div class="about_thumb2 d-flex">
+                        <div class="img_1">
+                            <img src="img/about/1.png" alt="" />
+                        </div>
+                        <div class="img_2">
+                            <img src="img/about/2.png" alt="" />
+                        </div>
+                    </div>
+                </div>
+                <div class="col-xl-5 col-lg-5">
+                    <div class="about_info">
+                        <div class="section_title mb-20px">
+                            <span>Deliciosa comida</span>
+                            <h3>
+                                Nosotros Servimos Comida Fresca Y Deliciosa
+                            </h3>
+                        </div>
+                        <p>
+                            Ofrecemos desayuno y cena de primer nivel.
+                        </p>
+                        <a href="about.html" class="line-button">mas de nosotros</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- about_area_end -->
+
+    <!-- instragram_area_start -->
+    <div class="instragram_area">
+        <div class="single_instagram">
+            <img src="img/instragram/1.png" alt="" />
+            <div class="ovrelay">
+                <a href="#">
+                    <i class="fa fa-instagram"></i>
+                </a>
+            </div>
+        </div>
+        <div class="single_instagram">
+            <img src="img/instragram/2.png" alt="" />
+            <div class="ovrelay">
+                <a href="#">
+                    <i class="fa fa-instagram"></i>
+                </a>
+            </div>
+        </div>
+        <div class="single_instagram">
+            <img src="img/instragram/3.png" alt="" />
+            <div class="ovrelay">
+                <a href="#">
+                    <i class="fa fa-instagram"></i>
+                </a>
+            </div>
+        </div>
+        <div class="single_instagram">
+            <img src="img/instragram/4.png" alt="" />
+            <div class="ovrelay">
+                <a href="#">
+                    <i class="fa fa-instagram"></i>
+                </a>
+            </div>
+        </div>
+        <div class="single_instagram">
+            <img src="img/instragram/5.png" alt="" />
+            <div class="ovrelay">
+                <a href="#">
+                    <i class="fa fa-instagram"></i>
+                </a>
+            </div>
+        </div>
+    </div>
+    <!-- instragram_area_end -->
+
+    <!-- footer -->
+    <footer class="footer">
+        <div class="footer_top">
+            <div class="container">
+                <div class="row">
+                    <div class="col-xl-3 col-md-6 col-lg-3">
+                        <div class="footer_widget">
+                            <h3 class="footer_title">Direccion</h3>
+                            <p class="footer_text">
+                                Toluca centro, Estado de mexico
+                            </p>
+                        </div>
+                    </div>
+                    <div class="col-xl-3 col-md-6 col-lg-3">
+                        <div class="footer_widget">
+                            <h3 class="footer_title">Reservacion</h3>
+                            <p class="footer_text">
+                                +10 367 267 2678 <br />
+                                HotelHollyInc@montana.com
+                            </p>
+                        </div>
+                    </div>
+                    <div class="col-xl-2 col-md-6 col-lg-2">
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <!-- link that opens popup -->
+
+
+    <!-- JS here -->
+    <script src="js/vendor/modernizr-3.5.0.min.js"></script>
+    <script src="js/vendor/jquery-1.12.4.min.js"></script>
+    <script src="js/popper.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/owl.carousel.min.js"></script>
+    <script src="js/isotope.pkgd.min.js"></script>
+    <script src="js/ajax-form.js"></script>
+    <script src="js/waypoints.min.js"></script>
+    <script src="js/jquery.counterup.min.js"></script>
+    <script src="js/imagesloaded.pkgd.min.js"></script>
+    <script src="js/scrollIt.js"></script>
+    <script src="js/jquery.scrollUp.min.js"></script>
+    <script src="js/wow.min.js"></script>
+    <script src="js/nice-select.min.js"></script>
+    <script src="js/jquery.slicknav.min.js"></script>
+    <script src="js/jquery.magnific-popup.min.js"></script>
+    <script src="js/plugins.js"></script>
+    <script src="js/gijgo.min.js"></script>
+
+    <!--contact js-->
+    <script src="js/contact.js"></script>
+    <script src="js/jquery.ajaxchimp.min.js"></script>
+    <script src="js/jquery.form.js"></script>
+    <script src="js/jquery.validate.min.js"></script>
+    <script src="js/mail-script.js"></script>
+
+    <script src="js/main.js"></script>
+    <script>
+    $("#datepicker").datepicker({
+        iconsLibrary: "fontawesome",
+        icons: {
+            rightIcon: '<span class="fa fa-caret-down"></span>',
+        },
+    });
+    $("#datepicker2").datepicker({
+        iconsLibrary: "fontawesome",
+        icons: {
+            rightIcon: '<span class="fa fa-caret-down"></span>',
+        },
+    });
+    </script>
+</body>
+
+</html>

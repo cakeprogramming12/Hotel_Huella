@@ -5,7 +5,7 @@ include('includes/checklogin.php');
 check_login();
 
 // Código para agregar registros en la tabla cleaner
-if ($_POST['submit']) {
+if (isset($_POST['submit'])) {
     $username = $_POST['username'];
     $email = $_POST['email'];
     $password = $_POST['password']; // Contraseña sin encriptar
@@ -20,14 +20,14 @@ if ($_POST['submit']) {
     $row_cnt = $stmt1->num_rows;
 
     if ($row_cnt > 0) {
-        echo "<script>alert('El usuario ya existe');</script>";
+        $_SESSION['msg'] = 'El usuario ya existe';
     } else {
         // Insertar el nuevo registro
         $query = "INSERT INTO cleaner (username, email, password, reg_date) VALUES (?, ?, ?, ?)";
         $stmt = $mysqli->prepare($query);
         $stmt->bind_param('ssss', $username, $email, $password, $reg_date);
         $stmt->execute();
-        echo "<script>alert('El registro se ha agregado correctamente');</script>";
+        $_SESSION['msg'] = 'El registro se ha agregado correctamente';
     }
 }
 ?>
@@ -59,17 +59,21 @@ if ($_POST['submit']) {
 
                 <div class="row">
                     <div class="col-md-12">
-                        <h2 class="page-title">Agregar Cleaner</h2>
+                        <br>
+                        <br>
+                        <h2 class="page-title">Agregar personal limpieza</h2>
                         <div class="row">
                             <div class="col-md-12">
                                 <div class="panel panel-default">
                                     <div class="panel-heading">Detalles del Cleaner</div>
                                     <div class="panel-body">
-                                        <?php if (isset($_POST['submit'])) { ?>
-                                        <p style="color: red">
-                                            <?php echo htmlentities($_SESSION['msg']); ?><?php echo htmlentities($_SESSION['msg'] = ""); ?>
-                                        </p>
-                                        <?php } ?>
+                                        <?php 
+                                        // Mostrar el mensaje si está definido
+                                        if (isset($_SESSION['msg']) && $_SESSION['msg'] !== "") { 
+                                            echo '<p style="color: red">' . htmlentities($_SESSION['msg']) . '</p>';
+                                            $_SESSION['msg'] = ""; // Limpiar el mensaje después de mostrarlo
+                                        }
+                                        ?>
                                         <form method="post" class="form-horizontal">
                                             <div class="hr-dashed"></div>
 

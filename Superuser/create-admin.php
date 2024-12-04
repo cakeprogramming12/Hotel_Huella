@@ -59,6 +59,8 @@ if ($_POST['submit']) {
 
                 <div class="row">
                     <div class="col-md-12">
+                        <br>
+                        <br>
                         <h2 class="page-title">Agregar Administrador</h2>
                         <div class="row">
                             <div class="col-md-12">

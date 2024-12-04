@@ -20,6 +20,9 @@
             <ul>
                 <li><a href="http://localhost/Holiday_Inn_Express_Toluca/admin/manage-reservaciones.php"><i
                             class="fa fa-file"></i>Reservaciones</a></li>
+
+                <li><a href="http://localhost/Holiday_Inn_Express_Toluca/admin/registrar_huella.php"><i
+                            class="fa fa-file"></i>Agregar huella </a></li>
             </ul>
         </li>
 
@@ -33,5 +36,5 @@
         </li>
 
         <li><a href="http://localhost/Holiday_Inn_Express_Toluca/admin/access-log.php"><i
-                    class="fa fa-file"></i>Registro de Acceso de clientes</a></li>
+                    class="fa fa-file"></i>Actividad Acceso de clientes</a></li>
 </nav>

@@ -1,11 +1,11 @@
-No<?php
+<?php
 session_start();
 include('includes/config.php');
 include('includes/checklogin.php');
 check_login();
 
 // Código para actualizar el correo electrónico
-if ($_POST['update']) {
+if (isset($_POST['update'])) { // Verifica si 'update' está definido
     $email = $_POST['emailid'];
     $aid = $_SESSION['id'];
     $udate = date('Y-m-d');
@@ -17,7 +17,7 @@ if ($_POST['update']) {
 }
 
 // Código para cambiar contraseña
-if (isset($_POST['changepwd'])) {
+if (isset($_POST['changepwd'])) { // Verifica si 'changepwd' está definido
     $op = $_POST['oldpassword'];
     $np = $_POST['newpassword'];
     $ai = $_SESSION['id'];
@@ -43,6 +43,7 @@ if (isset($_POST['changepwd'])) {
     }
 }
 ?>
+
 <!doctype html>
 <html lang="en" class="no-js">
 
@@ -77,6 +78,8 @@ if (isset($_POST['changepwd'])) {
             <div class="container-fluid">
                 <div class="row">
                     <div class="col-md-12">
+                        <br>
+                        <br>
                         <h2 class="page-title">Administrar Perfil</h2>
                         <?php
                         $aid = $_SESSION['id'];

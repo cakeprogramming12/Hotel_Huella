@@ -9,40 +9,31 @@ if (!isset($_SESSION['msg'])) {
     $_SESSION['msg'] = ""; // Define la variable si no existe
 }
 
-// Código para agregar cuartos
+// Código para agregar una nueva habitación
 if (isset($_POST['submit'])) {
     $room_type = $_POST['room_type'];
-    $roomno = $_POST['rmno'];
+    $room_no = $_POST['room_no'];
+    $fees = $_POST['fees'];
 
-    // Obtener el precio asociado al tipo de habitación seleccionado
-    $sql = "SELECT fees FROM rooms WHERE room_type=? LIMIT 1";
-    $stmt1 = $mysqli->prepare($sql);
-    $stmt1->bind_param('s', $room_type);
-    $stmt1->execute();
-    $stmt1->bind_result($fees);
-    $stmt1->fetch();
-    $stmt1->close();
-
-    // Verificar si el número de habitación ya existe
+    // Verificar si el número de cuarto ya existe
     $sql = "SELECT room_no FROM rooms WHERE room_no=?";
-    $stmt2 = $mysqli->prepare($sql);
-    $stmt2->bind_param('i', $roomno);
-    $stmt2->execute();
-    $stmt2->store_result();
-    $row_cnt = $stmt2->num_rows;
+    $stmt1 = $mysqli->prepare($sql);
+    $stmt1->bind_param('i', $room_no);
+    $stmt1->execute();
+    $stmt1->store_result();
+    $row_cnt = $stmt1->num_rows;
 
     if ($row_cnt > 0) {
-        echo "<script>alert('El cuarto ya existe');</script>";
+        echo "<script>alert('El número de cuarto ya existe');</script>";
     } else {
-        $query = "INSERT INTO rooms (room_type, room_no, fees) VALUES (?, ?, ?)";
-        $stmt3 = $mysqli->prepare($query);
-        $stmt3->bind_param('sii', $room_type, $roomno, $fees);
-        $stmt3->execute();
-        $stmt3->close();
+        $query = "INSERT INTO rooms (room_type, room_no, fees, posting_date) VALUES (?, ?, ?, CURRENT_TIMESTAMP)";
+        $stmt2 = $mysqli->prepare($query);
+        $stmt2->bind_param('sii', $room_type, $room_no, $fees);
+        $stmt2->execute();
 
         // Mensaje de éxito
-        $_SESSION['msg'] = "El cuarto se ha agregado correctamente.";
-        echo "<script>alert('El cuarto se ha agregado correctamente');</script>";
+        $_SESSION['msg'] = "La habitación se ha agregado correctamente.";
+        echo "<script>alert('La habitación se ha agregado correctamente');</script>";
     }
 }
 ?>
@@ -56,7 +47,7 @@ if (isset($_POST['submit'])) {
     <meta name="description" content="">
     <meta name="author" content="">
     <meta name="theme-color" content="#3e454c">
-    <title>Crear Cuarto</title>
+    <title>Agregar Habitación</title>
     <link rel="stylesheet" href="css/font-awesome.min.css">
     <link rel="stylesheet" href="css/bootstrap.min.css">
     <link rel="stylesheet" href="css/dataTables.bootstrap.min.css">
@@ -76,14 +67,12 @@ if (isset($_POST['submit'])) {
 
                 <div class="row">
                     <div class="col-md-12">
-                        <br>
-                        <br>
-                        <h2 class="page-title">Agregar un Cuarto</h2>
+                        <h2 class="page-title">Agregar Habitación</h2>
 
                         <div class="row">
                             <div class="col-md-12">
                                 <div class="panel panel-default">
-                                    <div class="panel-heading">Cuartos</div>
+                                    <div class="panel-heading">Nueva Habitación</div>
                                     <div class="panel-body">
                                         <?php if (!empty($_SESSION['msg'])) { ?>
                                         <p style="color: red">
@@ -97,31 +86,30 @@ if (isset($_POST['submit'])) {
                                             <div class="form-group">
                                                 <label class="col-sm-2 control-label">Tipo de Habitación</label>
                                                 <div class="col-sm-8">
-                                                    <select name="room_type" id="room_type" class="form-control"
-                                                        required>
-                                                        <option value="">Seleccionar Tipo de Habitación</option>
-                                                        <?php
-                                                        $sql = "SELECT DISTINCT room_type, fees FROM rooms";
-                                                        $stmt = $mysqli->prepare($sql);
-                                                        $stmt->execute();
-                                                        $res = $stmt->get_result();
-                                                        while ($row = $res->fetch_object()) {
-                                                            echo "<option value='" . $row->room_type . "'>" . $row->room_type . " - Precio: $" . $row->fees . "</option>";
-                                                        }
-                                                        ?>
-                                                    </select>
+                                                    <input type="text" class="form-control" name="room_type"
+                                                        placeholder="Ejemplo: Sencilla, Doble, Suite"
+                                                        required="required">
                                                 </div>
                                             </div>
                                             <div class="form-group">
-                                                <label class="col-sm-2 control-label">No. de Cuarto</label>
+                                                <label class="col-sm-2 control-label">Número de Cuarto</label>
                                                 <div class="col-sm-8">
-                                                    <input type="text" class="form-control" name="rmno" id="rmno"
-                                                        value="" required="required">
+                                                    <input type="number" class="form-control" name="room_no"
+                                                        placeholder="Ingrese el número de cuarto" required="required">
                                                 </div>
                                             </div>
+                                            <div class="form-group">
+                                                <label class="col-sm-2 control-label">Tarifa (Precio)</label>
+                                                <div class="col-sm-8">
+                                                    <input type="number" class="form-control" name="fees"
+                                                        placeholder="Ingrese la tarifa en números enteros"
+                                                        required="required">
+                                                </div>
+                                            </div>
+
                                             <div class="col-sm-8 col-sm-offset-2">
                                                 <input class="btn btn-primary" type="submit" name="submit"
-                                                    value="Crear Cuarto">
+                                                    value="Agregar Habitación">
                                             </div>
                                         </form>
                                     </div>

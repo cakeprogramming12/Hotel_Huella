@@ -48,6 +48,8 @@ if ($_POST['submit']) {
             <div class="container-fluid">
                 <div class="row">
                     <div class="col-md-12">
+                        <br>
+                        <br>
                         <h2 class="page-title">Editar Detalles de Cuarto</h2>
                         <div class="panel panel-default">
                             <div class="panel-heading">Detalles de Cuarto</div>
@@ -63,13 +65,30 @@ if ($_POST['submit']) {
                                     while ($row = $res->fetch_object()) {
                                     ?>
                                     <div class="hr-dashed"></div>
+
+
+
                                     <div class="form-group">
                                         <label class="col-sm-2 control-label">Tipo de Habitación</label>
                                         <div class="col-sm-8">
-                                            <input type="text" name="room_type" value="<?php echo $row->room_type; ?>"
-                                                class="form-control" required>
+                                            <select name="room_type" class="form-control" required>
+                                                <?php
+            // Obtener los tipos de habitación únicos de la base de datos
+            $query = "SELECT DISTINCT room_type FROM rooms";
+            $result = $mysqli->query($query);
+            while ($rowType = $result->fetch_assoc()) {
+                // Comprobar si el tipo de habitación actual está seleccionado
+                $selected = ($rowType['room_type'] == $row->room_type) ? 'selected' : '';
+                echo "<option value='" . htmlspecialchars($rowType['room_type']) . "' $selected>" . htmlspecialchars($rowType['room_type']) . "</option>";
+            }
+            ?>
+                                            </select>
                                         </div>
                                     </div>
+
+
+
+
                                     <div class="form-group">
                                         <label class="col-sm-2 control-label">No de Cuarto</label>
                                         <div class="col-sm-8">

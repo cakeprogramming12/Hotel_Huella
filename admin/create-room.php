@@ -76,6 +76,8 @@ if (isset($_POST['submit'])) {
 
                 <div class="row">
                     <div class="col-md-12">
+                        <br>
+                        <br>
                         <h2 class="page-title">Agregar un Cuarto</h2>
 
                         <div class="row">

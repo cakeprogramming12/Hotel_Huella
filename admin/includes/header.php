@@ -6,7 +6,7 @@
             <a href="#"><img src="img/ts-avatar.jpg" class="ts-avatar hidden-side" alt=""> Cuenta <i
                     class="fa fa-angle-down hidden-side"></i></a>
             <ul>
-                <li><a href="my-profile.php">Mi Cuenta</a></li>
+                <li><a href="admin-profile.php">Mi Cuenta</a></li>
                 <li><a href="logout.php">Cerrar Sesión</a></li>
             </ul>
         </li>

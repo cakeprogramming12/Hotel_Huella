@@ -61,7 +61,8 @@ $stmt->close();
 ?>
 
                                                     <div class="stat-panel-number h1 "><?php echo $count;?></div>
-                                                    <div class="stat-panel-title text-uppercase"> Clientes</div>
+                                                    <div class="stat-panel-title text-uppercase"> Clientes con reserva
+                                                    </div>
                                                 </div>
                                             </div>
                                             <a href="manage-reservaciones.php" class="block-anchor panel-footer">Mas

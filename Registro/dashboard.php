@@ -70,7 +70,7 @@ check_login();
 
                                                 </div>
                                             </div>
-                                            <a href="room-details.php" class="block-anchor panel-footer text-center">Ver
+                                            <a href="factura.php" class="block-anchor panel-footer text-center">Ver
                                                 Todo &nbsp; <i class="fa fa-arrow-right"></i></a>
                                         </div>
                                     </div>
